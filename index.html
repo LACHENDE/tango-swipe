@@ -956,7 +956,7 @@ const JLPT=new Date(2027,6,4);
 const LS="tango-swipe-v1";
 const today=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
 const dayKey=off=>{const d=new Date();d.setDate(d.getDate()-off);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
-function fresh(){return{v:1,name:"",deviceId:"d_"+Math.random().toString(36).slice(2,12),xp:0,streak:0,best:0,lastDay:"",seen:0,answered:0,correct:0,bestCombo:0,days:{},srs:{},newDay:"",newCount:0,extraNew:0,unl:0,spoken:0,spk:{},speed:{},spRows:{},settings:{newPerDay:12,sound:true,voice:true,romaji:true,speak:true,lang:/^zh/i.test(navigator.language||"")?"zh":"en"},updatedAt:0}}
+function fresh(){return{v:1,name:"",deviceId:"d_"+Math.random().toString(36).slice(2,12),xp:0,streak:0,best:0,lastDay:"",seen:0,answered:0,correct:0,bestCombo:0,days:{},srs:{},newDay:"",newCount:0,extraNew:0,unl:0,spoken:0,spk:{},speed:{},spRows:{},settings:{newPerDay:12,sound:true,voice:true,vrate:.6,romaji:true,speak:true,lang:/^zh/i.test(navigator.language||"")?"zh":"en"},updatedAt:0}}
 let S=fresh();
 try{const raw=localStorage.getItem(LS);if(raw){S=Object.assign(fresh(),JSON.parse(raw));S.settings=Object.assign(fresh().settings,S.settings)}}catch(e){}
 const isZh=()=>S.settings.lang==="zh";
@@ -1032,7 +1032,17 @@ function beep(freqs,type="sine",dur=.09,vol=.08){
   try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();let t=actx.currentTime;
     freqs.forEach(f=>{const o=actx.createOscillator(),g=actx.createGain();o.type=type;o.frequency.value=f;g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(.001,t+dur);o.connect(g);g.connect(actx.destination);o.start(t);o.stop(t+dur);t+=dur*.8})}catch(e){}
 }
-function say(text){try{if(!("speechSynthesis" in window))return;const u=new SpeechSynthesisUtterance(text);u.lang="ja-JP";u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+// Learner-paced voice: slow by default, and slower again when the same word is replayed right away
+let lastSaid="",lastSaidAt=0,jaVoice=null;
+function pickVoice(){try{const vs=speechSynthesis.getVoices().filter(v=>/^ja/i.test(v.lang));jaVoice=vs.find(v=>/kyoko|o-ren|otoya|enhanced|premium/i.test(v.name))||vs[0]||null}catch(e){}}
+try{pickVoice();speechSynthesis.onvoiceschanged=pickVoice}catch(e){}
+function say(text){try{
+  if(!("speechSynthesis" in window))return;
+  const again=text===lastSaid&&Date.now()-lastSaidAt<5000;lastSaid=text;lastSaidAt=Date.now();
+  const u=new SpeechSynthesisUtterance(text);u.lang="ja-JP";if(jaVoice)u.voice=jaVoice;
+  u.rate=(S.settings.vrate||.6)*(again?.75:1);
+  speechSynthesis.cancel();speechSynthesis.speak(u);
+}catch(e){}}
 function buzz(ms){try{navigator.vibrate&&navigator.vibrate(ms)}catch(e){}}
 function toast(t){const el=document.getElementById("toast");el.textContent=t;el.classList.add("show");clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove("show"),1800)}
 const fx=document.getElementById("fx"),fctx=fx.getContext("2d");let parts=[],fxOn=false;
@@ -1451,11 +1461,13 @@ function renderMe(){
     <div class="setrow"><div>Meanings in<small>意思用中文还是英文</small></div><div class="seg"><button data-lang="zh" aria-pressed="${isZh()}">中文</button><button data-lang="en" aria-pressed="${!isZh()}">English</button></div></div>
     <div class="setrow"><div>Speaking cards<small>Every few cards, say a word out loud. Add the Japanese keyboard on iPhone for the mic</small></div><button class="switch" role="switch" data-set="speak" aria-checked="${S.settings.speak}" aria-label="Speaking cards"></button></div>
     <div class="setrow"><div>Read words aloud<small>Uses your phone's Japanese voice</small></div><button class="switch" role="switch" data-set="voice" aria-checked="${S.settings.voice}" aria-label="Read words aloud"></button></div>
+    <div class="setrow"><div>Voice speed<small>${T("Tap Listen twice to hear it even slower","连点两下“听”会更慢")}</small></div><div class="seg">${[[.45,"Slowest","很慢"],[.6,"Slow","慢"],[.85,"Normal","正常"]].map(([r,en,zh])=>`<button data-vrate="${r}" aria-pressed="${(S.settings.vrate||.6)===r}">${T(en,zh)}</button>`).join("")}</div></div>
     <div class="setrow"><div>Show romaji<small>Turn off once kana feels easy</small></div><button class="switch" role="switch" data-set="romaji" aria-checked="${S.settings.romaji}" aria-label="Show romaji"></button></div>
     <div class="setrow"><div>Name<small>${esc(S.name||"Not set")}</small></div><button class="btn ghost" id="rename" style="padding:8px 14px;font-size:14px">Change</button></div>
   </div>`;
   const v=document.getElementById("v-me");v.innerHTML=h;
   v.querySelectorAll("[data-set]").forEach(b=>b.onclick=()=>{const k=b.dataset.set;S.settings[k]=!S.settings[k];save();renderMe()});
+  v.querySelectorAll("[data-vrate]").forEach(b=>b.onclick=()=>{S.settings.vrate=+b.dataset.vrate;save();renderMe();say("こんにちは")});
   v.querySelectorAll("[data-lang]").forEach(b=>b.onclick=()=>{S.settings.lang=b.dataset.lang;applyLang();save();renderMe();renderOnboard();startFeed()});
   v.querySelector("#np-minus").onclick=()=>{S.settings.newPerDay=Math.max(5,S.settings.newPerDay-1);save();renderMe()};
   v.querySelector("#np-plus").onclick=()=>{S.settings.newPerDay=Math.min(40,S.settings.newPerDay+1);save();renderMe()};
