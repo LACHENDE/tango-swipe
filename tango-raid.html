@@ -66,38 +66,40 @@ input:focus{border-color:var(--gold)}
 .strike i.on{background:var(--gold);box-shadow:0 0 6px var(--gold)}
 .toast{position:absolute;left:50%;top:100px;transform:translateX(-50%);z-index:3;padding:6px 12px;border-radius:12px;background:rgba(27,16,53,.88);border:1px solid var(--line);font-size:13px;font-weight:800;opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap}
 .toast.show{opacity:1}
-.ctl{position:absolute;left:0;right:0;bottom:0;top:62%;z-index:2;display:flex;flex-direction:column;gap:8px;padding:0 12px max(10px,env(safe-area-inset-bottom));touch-action:none}
-.qbar{display:flex;align-items:flex-start;justify-content:center;gap:6px}
-#qWord{font-weight:800;font-size:44px;line-height:1.05;color:#F6F1E7;text-shadow:0 2px 0 #1B1035,0 0 18px rgba(0,0,0,.8)}
-.qtag{margin-top:4px;font-size:13px;font-weight:800;color:#F6F1E7;background:#2F5BBF;border:1px solid #6FA0FF;border-radius:7px;padding:0 6px}
-.qtag.t1{background:#5B6680;border-color:#A7B4C8}
-.qtag.t3{background:#6A3FB0;border-color:#B46BFF}
-#qSub{display:block;text-align:center;font-size:14px;font-weight:800;color:var(--soft);min-height:18px;text-shadow:0 1px 4px #000}
+.ctl{position:absolute;left:0;right:0;bottom:0;top:62%;z-index:2;display:flex;flex-direction:column;gap:8px;padding:0 10px max(10px,env(safe-area-inset-bottom));touch-action:none}
+.cross{display:grid;grid-template-columns:1fr auto 1fr;grid-template-rows:auto auto auto;gap:6px 8px;align-items:center}
+.qcore{grid-column:2;grid-row:2;display:flex;flex-direction:column;align-items:center;min-width:84px;pointer-events:none}
+.qbar{display:flex;align-items:flex-start;justify-content:center;gap:4px}
+#qWord{font-weight:800;font-size:42px;line-height:1.05;color:#F6F1E7;text-shadow:0 2px 0 #1B1035,0 0 18px rgba(0,0,0,.8);white-space:nowrap}
+.qtag{margin-top:4px;font-size:12px;font-weight:800;color:#F6F1E7;background:#2F5BBF;border:1px solid #6FA0FF;border-radius:7px;padding:0 5px}
+.qtag.t0{background:#5B6680;border-color:#A7B4C8}
+.qtag.t2{background:#6A3FB0;border-color:#B46BFF}
+.qtag.t3{background:#7A5810;border-color:#F2C14E}
+#qSub{display:block;text-align:center;font-size:14px;font-weight:800;color:var(--soft);min-height:18px;text-shadow:0 1px 4px #000;white-space:nowrap}
 .qbar.good #qWord{color:var(--teal)}
 .qbar.bad #qWord{color:var(--magenta)}
-.cross{display:grid;grid-template-columns:1fr 34px 1fr;grid-template-rows:auto auto auto;gap:6px;align-items:center}
-.ans{border-radius:12px;border:1.5px solid rgba(169,155,208,.6);background:rgba(18,12,46,.84);font-size:17px;font-weight:800;line-height:1.15;padding:7px 12px;color:#F6F1E7;cursor:pointer;touch-action:none;max-width:100%;overflow-wrap:anywhere;box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.ans{border-radius:14px;border:1.5px solid rgba(169,155,208,.65);background:rgba(18,12,46,.86);font-size:18px;font-weight:800;line-height:1.15;padding:9px 14px;min-height:46px;color:#F6F1E7;cursor:pointer;touch-action:none;max-width:100%;overflow-wrap:anywhere;box-shadow:0 2px 10px rgba(0,0,0,.35)}
 .ans.u{grid-column:1 / 4;grid-row:1;justify-self:center}
 .ans.l{grid-column:1;grid-row:2;justify-self:end}
 .ans.r{grid-column:3;grid-row:2;justify-self:start}
 .ans.d{grid-column:1 / 4;grid-row:3;justify-self:center}
-.ans.long{font-size:14px}
+.ans.long{font-size:15px}
 .ans.good{background:var(--teal);border-color:var(--teal);color:var(--night)}
 .ans.bad{background:var(--magenta);border-color:var(--magenta);color:var(--night)}
 .ans:disabled{opacity:.5}
-.mid{grid-column:2;grid-row:2;justify-self:center;width:10px;height:10px;transform:rotate(45deg);border:1.5px solid var(--gold)}
-.thumbs{margin-top:auto;display:flex;align-items:center;gap:10px}
-.stick{width:116px;height:116px;flex:none;border-radius:50%;border:2px solid rgba(46,230,214,.55);background:radial-gradient(circle,rgba(46,230,214,.14),rgba(46,230,214,.03));position:relative;touch-action:none;display:flex;align-items:center;justify-content:center}
-.knob{width:54px;height:54px;border-radius:50%;background:linear-gradient(180deg,#C9D2EA,#8F9BC2);box-shadow:0 2px 10px rgba(0,0,0,.5);pointer-events:none;transition:transform .05s}
-.skill{flex:1;min-width:0;padding:10px 6px;border-radius:14px;border:1.5px solid var(--line);background:rgba(18,12,46,.84);color:var(--muted);font-weight:800;font-size:14px;cursor:pointer}
-.skill.ready{border-color:var(--gold);color:var(--gold-lt);background:rgba(92,66,18,.88);box-shadow:0 0 18px rgba(242,193,78,.5);animation:pulse 1s infinite alternate}
+.thumbs{margin-top:auto;display:flex;align-items:flex-end;gap:10px}
+.stick{width:140px;height:140px;flex:none;border-radius:50%;border:2px solid rgba(46,230,214,.55);background:radial-gradient(circle,rgba(46,230,214,.16),rgba(46,230,214,.03));position:relative;touch-action:none;display:flex;align-items:center;justify-content:center;transition:transform .12s}
+.stick.on{transition:none;border-color:rgba(46,230,214,.95);box-shadow:0 0 22px rgba(46,230,214,.35)}
+.knob{width:62px;height:62px;border-radius:50%;background:linear-gradient(180deg,#C9D2EA,#8F9BC2);box-shadow:0 2px 10px rgba(0,0,0,.5);pointer-events:none;transition:transform .05s}
+.skill{flex:1;min-width:0;align-self:center;padding:10px 4px;border-radius:14px;border:1.5px solid var(--line);background:rgba(18,12,46,.86);color:var(--muted);font-weight:800;font-size:14px;line-height:1.3;white-space:nowrap;cursor:pointer}
+.skill.ready{border-color:var(--gold);color:var(--gold-lt);background:rgba(92,66,18,.9);box-shadow:0 0 18px rgba(242,193,78,.5);animation:pulse 1s infinite alternate}
 @keyframes pulse{to{box-shadow:0 0 30px rgba(242,193,78,.85)}}
-.flickpad{width:96px;height:96px;flex:none;position:relative;border-radius:50%;background:radial-gradient(circle,rgba(169,155,208,.14),rgba(169,155,208,0) 70%)}
-.flickpad span{position:absolute;color:rgba(207,198,232,.75);font-size:16px;font-weight:800;transform:translate(-50%,-50%)}
+.flickpad{width:128px;height:128px;flex:none;position:relative;border-radius:50%;background:radial-gradient(circle,rgba(169,155,208,.16),rgba(169,155,208,0) 70%)}
+.flickpad span{position:absolute;color:rgba(207,198,232,.8);font-size:18px;font-weight:800;transform:translate(-50%,-50%)}
 .flickpad .pu{left:50%;top:14%}.flickpad .pl{left:14%;top:50%}.flickpad .pr{left:86%;top:50%}.flickpad .pd{left:50%;top:86%}
-.flickpad .pc{left:50%;top:50%;width:8px;height:8px;border-radius:50%;background:rgba(207,198,232,.75)}
-.flickpad.hit{background:radial-gradient(circle,rgba(242,193,78,.35),rgba(242,193,78,0) 70%)}
-@media (max-height:720px){#qWord{font-size:36px}.ans{padding:5px 10px;font-size:15px}.ans.long{font-size:13px}.stick{width:96px;height:96px}.knob{width:44px;height:44px}.flickpad{width:80px;height:80px}.ctl{gap:4px}}
+.flickpad .pc{left:50%;top:50%;width:9px;height:9px;border-radius:50%;background:rgba(207,198,232,.8)}
+.flickpad.hit{background:radial-gradient(circle,rgba(242,193,78,.38),rgba(242,193,78,0) 70%)}
+@media (max-height:720px){#qWord{font-size:34px}.ans{padding:6px 10px;font-size:15px;min-height:40px}.ans.long{font-size:13px}.stick{width:112px;height:112px}.knob{width:50px;height:50px}.flickpad{width:100px;height:100px}.ctl{gap:4px}}
 /* overlays */
 .cutin{position:absolute;inset:0;pointer-events:none;display:flex;align-items:center;justify-content:center;overflow:hidden;z-index:5}
 .band{position:relative;width:150%;height:118px;display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(90deg,rgba(242,193,78,0) 0%,var(--gold) 18%,var(--gold-lt) 50%,var(--gold) 82%,rgba(242,193,78,0) 100%);transform:rotate(-6deg)}
@@ -133,8 +135,11 @@ input:focus{border-color:var(--gold)}
   </div>
   <div class="field"><label for="nameIn" data-t="yourName">Your name</label><input id="nameIn" maxlength="12" autocomplete="off"></div>
   <div class="field"><label data-t="level">Level</label>
-    <div class="seg" id="lvlSeg"><button type="button" data-v="0" data-t="lvlEasy">Easy</button><button type="button" data-v="1" data-t="lvlNormal">Normal</button><button type="button" data-v="2" data-t="lvlHard">Hard</button></div>
+    <div class="seg" id="lvlSeg"><button type="button" data-v="0" data-t="lvlEasy">Easy</button><button type="button" data-v="1" data-t="lvlNormal">Normal</button><button type="button" data-v="2" data-t="lvlHard">Hard</button><button type="button" data-v="3" data-t="lvlExpert">Expert</button></div>
     <p class="hint" id="lvlHint"></p>
+  </div>
+  <div class="field"><label data-t="words">WORDS</label>
+    <div class="seg" id="setSeg"><button type="button" data-v="n5">N5</button><button type="button" data-v="n4">N4</button><button type="button" data-v="both">N5 + N4</button></div>
   </div>
   <button id="createBtn" type="button" class="btn gold" data-t="create">Create a room</button>
   <div class="joinrow"><input id="codeIn" maxlength="4" placeholder="CODE" autocomplete="off" autocapitalize="characters"><button id="joinBtn" type="button" class="btn teal" data-t="join">Join</button></div>
@@ -151,6 +156,9 @@ input:focus{border-color:var(--gold)}
   <p class="eyebrow" data-t="players">PLAYERS</p>
   <ul id="plist" class="plist"></ul>
   <p id="netState" class="hint"></p>
+  <div class="field" id="speedField"><label data-t="speed">MONSTER SPEED</label>
+    <div class="seg" id="speedSeg"><button type="button" data-v="calm" data-t="spCalm">Calm</button><button type="button" data-v="normal" data-t="spNormal">Normal</button><button type="button" data-v="fierce" data-t="spFierce">Fierce</button></div>
+  </div>
   <p class="how" data-t="howto">How to play</p>
   <div class="spacer"></div>
   <button id="startBtn" type="button" class="btn gold" data-t="start">Start the raid</button>
@@ -167,11 +175,10 @@ input:focus{border-color:var(--gold)}
   </div>
   <div id="toast" class="toast"></div>
   <div id="ctl" class="ctl">
-    <div><div id="qbar" class="qbar"><span id="qWord"></span><span id="qTag" class="qtag">T2</span></div><span id="qSub"></span></div>
     <div class="cross">
       <button type="button" class="ans u" data-i="0"></button>
       <button type="button" class="ans l" data-i="1"></button>
-      <span class="mid" aria-hidden="true"></span>
+      <div class="qcore"><div id="qbar" class="qbar"><span id="qWord"></span><span id="qTag" class="qtag">T2</span></div><span id="qSub"></span></div>
       <button type="button" class="ans r" data-i="2"></button>
       <button type="button" class="ans d" data-i="3"></button>
     </div>
@@ -212,49 +219,529 @@ safe-buffer/index.js:
   (*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE *)
 */
 </script>
+<script>// Word list for the live raid. One word per line:
+// written | kana reading | English | Indonesian | Chinese | group
+// Groups (wrong answers come from the same group): p people, l places, t time, f food, b body,
+// n nature, o things, r transport, s school & work, v verbs, a adjectives, w other words.
+const WORD_DATA = {
+n5: `先生|せんせい|teacher|guru|老师|p
+学生|がくせい|student|pelajar|学生|p
+友達|ともだち|friend|teman|朋友|p
+家族|かぞく|family|keluarga|家人|p
+子供|こども|child|anak|孩子|p
+人|ひと|person|orang|人|p
+医者|いしゃ|doctor|dokter|医生|p
+母|はは|mother|ibu|母亲|p
+父|ちち|father|ayah|父亲|p
+兄|あに|older brother|kakak laki-laki|哥哥|p
+姉|あね|older sister|kakak perempuan|姐姐|p
+弟|おとうと|younger brother|adik laki-laki|弟弟|p
+妹|いもうと|younger sister|adik perempuan|妹妹|p
+男の人|おとこのひと|man|laki-laki|男人|p
+女の人|おんなのひと|woman|perempuan|女人|p
+お客さん|おきゃくさん|guest|tamu|客人|p
+大人|おとな|adult|orang dewasa|大人|p
+外国人|がいこくじん|foreigner|orang asing|外国人|p
+おまわりさん|おまわりさん|police officer|polisi|警察|p
+学校|がっこう|school|sekolah|学校|l
+駅|えき|station|stasiun|车站|l
+病院|びょういん|hospital|rumah sakit|医院|l
+会社|かいしゃ|company|perusahaan|公司|l
+図書館|としょかん|library|perpustakaan|图书馆|l
+店|みせ|shop|toko|商店|l
+家|いえ|house|rumah|房子|l
+銀行|ぎんこう|bank|bank|银行|l
+郵便局|ゆうびんきょく|post office|kantor pos|邮局|l
+大学|だいがく|university|universitas|大学|l
+公園|こうえん|park|taman|公园|l
+部屋|へや|room|kamar|房间|l
+教室|きょうしつ|classroom|ruang kelas|教室|l
+国|くに|country|negara|国家|l
+町|まち|town|kota kecil|城镇|l
+道|みち|road|jalan|路|l
+台所|だいどころ|kitchen|dapur|厨房|l
+トイレ|トイレ|toilet|toilet|厕所|l
+ホテル|ホテル|hotel|hotel|酒店|l
+レストラン|レストラン|restaurant|restoran|餐厅|l
+デパート|デパート|department store|toserba|百货商店|l
+交番|こうばん|police box|pos polisi|派出所|l
+喫茶店|きっさてん|café|kafe|咖啡馆|l
+映画館|えいがかん|cinema|bioskop|电影院|l
+今日|きょう|today|hari ini|今天|t
+明日|あした|tomorrow|besok|明天|t
+昨日|きのう|yesterday|kemarin|昨天|t
+朝|あさ|morning|pagi|早上|t
+昼|ひる|noon|siang|中午|t
+夜|よる|night|malam|晚上|t
+今|いま|now|sekarang|现在|t
+今週|こんしゅう|this week|minggu ini|这周|t
+来週|らいしゅう|next week|minggu depan|下周|t
+先週|せんしゅう|last week|minggu lalu|上周|t
+毎日|まいにち|every day|setiap hari|每天|t
+毎朝|まいあさ|every morning|setiap pagi|每天早上|t
+今年|ことし|this year|tahun ini|今年|t
+来年|らいねん|next year|tahun depan|明年|t
+去年|きょねん|last year|tahun lalu|去年|t
+時間|じかん|time|waktu|时间|t
+午前|ごぜん|a.m.|pagi (a.m.)|上午|t
+午後|ごご|p.m.|siang (p.m.)|下午|t
+月曜日|げつようび|Monday|Senin|星期一|t
+火曜日|かようび|Tuesday|Selasa|星期二|t
+水曜日|すいようび|Wednesday|Rabu|星期三|t
+木曜日|もくようび|Thursday|Kamis|星期四|t
+金曜日|きんようび|Friday|Jumat|星期五|t
+土曜日|どようび|Saturday|Sabtu|星期六|t
+日曜日|にちようび|Sunday|Minggu|星期日|t
+誕生日|たんじょうび|birthday|ulang tahun|生日|t
+夏休み|なつやすみ|summer vacation|liburan musim panas|暑假|t
+水|みず|water|air|水|f
+お茶|おちゃ|tea|teh|茶|f
+ご飯|ごはん|meal|nasi|饭|f
+魚|さかな|fish|ikan|鱼|f
+肉|にく|meat|daging|肉|f
+野菜|やさい|vegetable|sayur|蔬菜|f
+果物|くだもの|fruit|buah|水果|f
+卵|たまご|egg|telur|鸡蛋|f
+牛乳|ぎゅうにゅう|milk|susu|牛奶|f
+お酒|おさけ|alcohol|minuman keras|酒|f
+朝ご飯|あさごはん|breakfast|sarapan|早饭|f
+昼ご飯|ひるごはん|lunch|makan siang|午饭|f
+晩ご飯|ばんごはん|dinner|makan malam|晚饭|f
+パン|パン|bread|roti|面包|f
+コーヒー|コーヒー|coffee|kopi|咖啡|f
+ジュース|ジュース|juice|jus|果汁|f
+お菓子|おかし|snacks|camilan|零食|f
+りんご|りんご|apple|apel|苹果|f
+砂糖|さとう|sugar|gula|糖|f
+塩|しお|salt|garam|盐|f
+カレー|カレー|curry|kari|咖喱|f
+ケーキ|ケーキ|cake|kue|蛋糕|f
+目|め|eye|mata|眼睛|b
+耳|みみ|ear|telinga|耳朵|b
+口|くち|mouth|mulut|嘴|b
+手|て|hand|tangan|手|b
+足|あし|foot|kaki|脚|b
+頭|あたま|head|kepala|头|b
+顔|かお|face|wajah|脸|b
+お腹|おなか|stomach|perut|肚子|b
+歯|は|tooth|gigi|牙齿|b
+鼻|はな|nose|hidung|鼻子|b
+体|からだ|body|badan|身体|b
+病気|びょうき|illness|penyakit|病|b
+薬|くすり|medicine|obat|药|b
+山|やま|mountain|gunung|山|n
+川|かわ|river|sungai|河|n
+木|き|tree|pohon|树|n
+火|ひ|fire|api|火|n
+雨|あめ|rain|hujan|雨|n
+空|そら|sky|langit|天空|n
+花|はな|flower|bunga|花|n
+海|うみ|sea|laut|海|n
+天気|てんき|weather|cuaca|天气|n
+雪|ゆき|snow|salju|雪|n
+風|かぜ|wind|angin|风|n
+犬|いぬ|dog|anjing|狗|n
+猫|ねこ|cat|kucing|猫|n
+鳥|とり|bird|burung|鸟|n
+春|はる|spring|musim semi|春天|n
+夏|なつ|summer|musim panas|夏天|n
+秋|あき|autumn|musim gugur|秋天|n
+冬|ふゆ|winter|musim dingin|冬天|n
+池|いけ|pond|kolam|池塘|n
+動物|どうぶつ|animal|hewan|动物|n
+本|ほん|book|buku|书|o
+机|つくえ|desk|meja|书桌|o
+紙|かみ|paper|kertas|纸|o
+時計|とけい|clock|jam|钟表|o
+傘|かさ|umbrella|payung|伞|o
+手紙|てがみ|letter|surat|信|o
+かばん|かばん|bag|tas|包|o
+靴|くつ|shoes|sepatu|鞋|o
+帽子|ぼうし|hat|topi|帽子|o
+眼鏡|めがね|glasses|kacamata|眼镜|o
+椅子|いす|chair|kursi|椅子|o
+窓|まど|window|jendela|窗户|o
+ドア|ドア|door|pintu|门|o
+電話|でんわ|telephone|telepon|电话|o
+写真|しゃしん|photo|foto|照片|o
+新聞|しんぶん|newspaper|koran|报纸|o
+お金|おかね|money|uang|钱|o
+切手|きって|stamp|perangko|邮票|o
+鉛筆|えんぴつ|pencil|pensil|铅笔|o
+辞書|じしょ|dictionary|kamus|词典|o
+テレビ|テレビ|TV|televisi|电视|o
+ラジオ|ラジオ|radio|radio|收音机|o
+カメラ|カメラ|camera|kamera|相机|o
+ボールペン|ボールペン|ballpoint pen|bolpoin|圆珠笔|o
+ノート|ノート|notebook|buku catatan|笔记本|o
+服|ふく|clothes|baju|衣服|o
+冷蔵庫|れいぞうこ|refrigerator|kulkas|冰箱|o
+箱|はこ|box|kotak|箱子|o
+鍵|かぎ|key|kunci|钥匙|o
+財布|さいふ|wallet|dompet|钱包|o
+コップ|コップ|cup|gelas|杯子|o
+シャツ|シャツ|shirt|kemeja|衬衫|o
+電車|でんしゃ|train|kereta|电车|r
+車|くるま|car|mobil|汽车|r
+自転車|じてんしゃ|bicycle|sepeda|自行车|r
+バス|バス|bus|bus|公交车|r
+タクシー|タクシー|taxi|taksi|出租车|r
+飛行機|ひこうき|airplane|pesawat|飞机|r
+地下鉄|ちかてつ|subway|kereta bawah tanah|地铁|r
+切符|きっぷ|ticket|tiket|票|r
+船|ふね|ship|kapal|船|r
+旅行|りょこう|trip|perjalanan|旅行|r
+勉強|べんきょう|study|belajar|学习|s
+宿題|しゅくだい|homework|PR|作业|s
+仕事|しごと|work|pekerjaan|工作|s
+日本語|にほんご|Japanese|bahasa Jepang|日语|s
+英語|えいご|English|bahasa Inggris|英语|s
+漢字|かんじ|kanji|kanji|汉字|s
+言葉|ことば|word|kata|词语|s
+質問|しつもん|question|pertanyaan|问题|s
+音楽|おんがく|music|musik|音乐|s
+映画|えいが|movie|film|电影|s
+歌|うた|song|lagu|歌|s
+絵|え|picture|gambar|画|s
+スポーツ|スポーツ|sports|olahraga|运动|s
+テスト|テスト|test|tes|测验|s
+クラス|クラス|class|kelas|班级|s
+パーティー|パーティー|party|pesta|派对|s
+休み|やすみ|day off|libur|休息日|s
+名前|なまえ|name|nama|名字|s
+食べる|たべる|to eat|makan|吃|v
+飲む|のむ|to drink|minum|喝|v
+行く|いく|to go|pergi|去|v
+来る|くる|to come|datang|来|v
+見る|みる|to see|melihat|看|v
+聞く|きく|to listen|mendengar|听|v
+話す|はなす|to speak|berbicara|说|v
+読む|よむ|to read|membaca|读|v
+書く|かく|to write|menulis|写|v
+買う|かう|to buy|membeli|买|v
+寝る|ねる|to sleep|tidur|睡觉|v
+起きる|おきる|to get up|bangun|起床|v
+帰る|かえる|to go home|pulang|回家|v
+待つ|まつ|to wait|menunggu|等|v
+使う|つかう|to use|menggunakan|用|v
+作る|つくる|to make|membuat|做|v
+会う|あう|to meet|bertemu|见面|v
+遊ぶ|あそぶ|to play|bermain|玩|v
+泳ぐ|およぐ|to swim|berenang|游泳|v
+歩く|あるく|to walk|berjalan kaki|走路|v
+走る|はしる|to run|berlari|跑|v
+立つ|たつ|to stand|berdiri|站|v
+座る|すわる|to sit|duduk|坐|v
+開ける|あける|to open|membuka|打开|v
+閉める|しめる|to close|menutup|关|v
+入る|はいる|to enter|masuk|进入|v
+出る|でる|to go out|keluar|出去|v
+休む|やすむ|to rest|beristirahat|休息|v
+教える|おしえる|to teach|mengajar|教|v
+習う|ならう|to learn|belajar dari guru|学|v
+分かる|わかる|to understand|mengerti|明白|v
+知る|しる|to know|tahu|知道|v
+住む|すむ|to live (in)|tinggal|住|v
+働く|はたらく|to work|bekerja|上班|v
+洗う|あらう|to wash|mencuci|洗|v
+呼ぶ|よぶ|to call|memanggil|叫|v
+撮る|とる|to take (a photo)|memotret|拍照|v
+貸す|かす|to lend|meminjamkan|借给|v
+借りる|かりる|to borrow|meminjam|借|v
+始まる|はじまる|to begin|dimulai|开始|v
+終わる|おわる|to end|selesai|结束|v
+忘れる|わすれる|to forget|lupa|忘记|v
+降る|ふる|to fall (rain)|turun (hujan)|下（雨）|v
+着る|きる|to wear|memakai|穿|v
+大きい|おおきい|big|besar|大|a
+小さい|ちいさい|small|kecil|小|a
+新しい|あたらしい|new|baru|新|a
+古い|ふるい|old|lama|旧|a
+高い|たかい|expensive|mahal|贵|a
+安い|やすい|cheap|murah|便宜|a
+暑い|あつい|hot|panas|热|a
+寒い|さむい|cold|dingin|冷|a
+長い|ながい|long|panjang|长|a
+短い|みじかい|short|pendek|短|a
+早い|はやい|early|awal|早|a
+近い|ちかい|near|dekat|近|a
+遠い|とおい|far|jauh|远|a
+多い|おおい|many|banyak|多|a
+少ない|すくない|few|sedikit|少|a
+面白い|おもしろい|interesting|menarik|有趣|a
+楽しい|たのしい|fun|menyenangkan|快乐|a
+難しい|むずかしい|difficult|sulit|难|a
+易しい|やさしい|easy|mudah|容易|a
+おいしい|おいしい|delicious|enak|好吃|a
+忙しい|いそがしい|busy|sibuk|忙|a
+広い|ひろい|wide|luas|宽敞|a
+狭い|せまい|narrow|sempit|窄|a
+明るい|あかるい|bright|terang|明亮|a
+暗い|くらい|dark|gelap|暗|a
+重い|おもい|heavy|berat|重|a
+軽い|かるい|light|ringan|轻|a
+白い|しろい|white|putih|白|a
+黒い|くろい|black|hitam|黑|a
+赤い|あかい|red|merah|红|a
+青い|あおい|blue|biru|蓝|a
+暖かい|あたたかい|warm|hangat|暖和|a
+元気|げんき|healthy|sehat|健康|a
+静か|しずか|quiet|sepi|安静|a
+有名|ゆうめい|famous|terkenal|著名|a
+好き|すき|liked|suka|喜欢|a
+嫌い|きらい|disliked|tidak suka|讨厌|a
+上手|じょうず|skillful|pandai|擅长|a
+下手|へた|unskillful|tidak pandai|不擅长|a
+便利|べんり|convenient|praktis|方便|a
+きれい|きれい|pretty|cantik|漂亮|a
+上|うえ|above|atas|上面|w
+下|した|below|bawah|下面|w
+前|まえ|front|depan|前面|w
+後ろ|うしろ|behind|belakang|后面|w
+右|みぎ|right|kanan|右边|w
+左|ひだり|left|kiri|左边|w
+中|なか|inside|dalam|里面|w
+外|そと|outside|luar|外面|w
+東|ひがし|east|timur|东|w
+西|にし|west|barat|西|w
+南|みなみ|south|selatan|南|w
+北|きた|north|utara|北|w
+少し|すこし|a little|sedikit saja|一点儿|w
+とても|とても|very|sangat|很|w
+一緒に|いっしょに|together|bersama|一起|w
+いつも|いつも|always|selalu|总是|w
+時々|ときどき|sometimes|kadang-kadang|有时|w
+たくさん|たくさん|a lot|banyak sekali|很多|w
+ゆっくり|ゆっくり|slowly|pelan-pelan|慢慢地|w
+まっすぐ|まっすぐ|straight|lurus|笔直|w`,
+
+n4: `祖父|そふ|grandfather|kakek|祖父|p
+祖母|そぼ|grandmother|nenek|祖母|p
+両親|りょうしん|parents|orang tua|父母|p
+夫|おっと|husband|suami|丈夫|p
+妻|つま|wife|istri|妻子|p
+息子|むすこ|son|anak laki-laki|儿子|p
+娘|むすめ|daughter|anak perempuan|女儿|p
+赤ちゃん|あかちゃん|baby|bayi|婴儿|p
+社長|しゃちょう|company president|direktur|总经理|p
+店員|てんいん|shop clerk|pelayan toko|店员|p
+看護師|かんごし|nurse|perawat|护士|p
+彼|かれ|he|dia (laki-laki)|他|p
+彼女|かのじょ|she|dia (perempuan)|她|p
+先輩|せんぱい|senior|senior|前辈|p
+課長|かちょう|section chief|kepala bagian|科长|p
+運転手|うんてんしゅ|driver|sopir|司机|p
+空港|くうこう|airport|bandara|机场|l
+工場|こうじょう|factory|pabrik|工厂|l
+会場|かいじょう|venue|tempat acara|会场|l
+美術館|びじゅつかん|art museum|museum seni|美术馆|l
+神社|じんじゃ|shrine|kuil Shinto|神社|l
+寺|てら|temple|kuil Buddha|寺庙|l
+島|しま|island|pulau|岛|l
+村|むら|village|desa|村庄|l
+屋上|おくじょう|rooftop|atap gedung|屋顶|l
+受付|うけつけ|reception|resepsionis|前台|l
+売り場|うりば|sales counter|tempat penjualan|柜台|l
+入口|いりぐち|entrance|pintu masuk|入口|l
+出口|でぐち|exit|pintu keluar|出口|l
+事務所|じむしょ|office|kantor|办公室|l
+駐車場|ちゅうしゃじょう|parking lot|tempat parkir|停车场|l
+動物園|どうぶつえん|zoo|kebun binatang|动物园|l
+教会|きょうかい|church|gereja|教堂|l
+床屋|とこや|barbershop|tukang cukur|理发店|l
+週末|しゅうまつ|weekend|akhir pekan|周末|t
+夕方|ゆうがた|evening|sore|傍晚|t
+最近|さいきん|recently|akhir-akhir ini|最近|t
+将来|しょうらい|future|masa depan|将来|t
+昔|むかし|long ago|dulu|从前|t
+今度|こんど|next time|lain kali|下次|t
+予定|よてい|plan|rencana|计划|t
+季節|きせつ|season|musim|季节|t
+夜中|よなか|middle of the night|tengah malam|半夜|t
+牛肉|ぎゅうにく|beef|daging sapi|牛肉|f
+豚肉|ぶたにく|pork|daging babi|猪肉|f
+鶏肉|とりにく|chicken|daging ayam|鸡肉|f
+米|こめ|rice|beras|大米|f
+味|あじ|taste|rasa|味道|f
+食料品|しょくりょうひん|groceries|bahan makanan|食品|f
+お弁当|おべんとう|boxed lunch|bekal|便当|f
+ごちそう|ごちそう|feast|hidangan|盛宴|f
+お湯|おゆ|hot water|air panas|热水|f
+熱|ねつ|fever|demam|发烧|b
+けが|けが|injury|luka|受伤|b
+髪|かみ|hair|rambut|头发|b
+首|くび|neck|leher|脖子|b
+腕|うで|arm|lengan|胳膊|b
+指|ゆび|finger|jari|手指|b
+心|こころ|heart|hati|心|b
+気分|きぶん|mood|suasana hati|心情|b
+星|ほし|star|bintang|星星|n
+月|つき|moon|bulan|月亮|n
+石|いし|stone|batu|石头|n
+森|もり|forest|hutan|森林|n
+台風|たいふう|typhoon|topan|台风|n
+地震|じしん|earthquake|gempa bumi|地震|n
+虫|むし|insect|serangga|虫子|n
+草|くさ|grass|rumput|草|n
+小鳥|ことり|small bird|burung kecil|小鸟|n
+空気|くうき|air|udara|空气|n
+景色|けしき|scenery|pemandangan|风景|n
+火事|かじ|fire (blaze)|kebakaran|火灾|n
+鏡|かがみ|mirror|cermin|镜子|o
+箸|はし|chopsticks|sumpit|筷子|o
+皿|さら|plate|piring|盘子|o
+布団|ふとん|futon|kasur lipat|被褥|o
+着物|きもの|kimono|kimono|和服|o
+指輪|ゆびわ|ring|cincin|戒指|o
+人形|にんぎょう|doll|boneka|娃娃|o
+おもちゃ|おもちゃ|toy|mainan|玩具|o
+道具|どうぐ|tool|alat|工具|o
+荷物|にもつ|luggage|barang bawaan|行李|o
+手袋|てぶくろ|gloves|sarung tangan|手套|o
+棚|たな|shelf|rak|架子|o
+カーテン|カーテン|curtain|tirai|窗帘|o
+パソコン|パソコン|computer|komputer|电脑|o
+地図|ちず|map|peta|地图|o
+石鹸|せっけん|soap|sabun|肥皂|o
+新幹線|しんかんせん|bullet train|kereta cepat|新干线|r
+特急|とっきゅう|limited express|kereta ekspres|特快|r
+交通|こうつう|traffic|lalu lintas|交通|r
+信号|しんごう|traffic light|lampu lalu lintas|红绿灯|r
+橋|はし|bridge|jembatan|桥|r
+道路|どうろ|highway|jalan raya|道路|r
+試験|しけん|exam|ujian|考试|s
+授業|じゅぎょう|lesson|pelajaran|课|s
+研究|けんきゅう|research|penelitian|研究|s
+説明|せつめい|explanation|penjelasan|说明|s
+経験|けいけん|experience|pengalaman|经验|s
+趣味|しゅみ|hobby|hobi|爱好|s
+会議|かいぎ|meeting|rapat|会议|s
+約束|やくそく|promise|janji|约定|s
+意見|いけん|opinion|pendapat|意见|s
+文化|ぶんか|culture|budaya|文化|s
+文法|ぶんぽう|grammar|tata bahasa|语法|s
+小説|しょうせつ|novel|novel|小说|s
+留学|りゅうがく|study abroad|kuliah di luar negeri|留学|s
+給料|きゅうりょう|salary|gaji|工资|s
+集める|あつめる|to collect|mengumpulkan|收集|v
+運ぶ|はこぶ|to carry|membawa|搬运|v
+決める|きめる|to decide|memutuskan|决定|v
+調べる|しらべる|to look up|memeriksa|调查|v
+送る|おくる|to send|mengirim|寄|v
+届ける|とどける|to deliver|mengantarkan|送到|v
+選ぶ|えらぶ|to choose|memilih|选择|v
+探す|さがす|to search|mencari|找|v
+続ける|つづける|to continue|melanjutkan|继续|v
+止める|とめる|to stop|menghentikan|停止|v
+答える|こたえる|to answer|menjawab|回答|v
+考える|かんがえる|to think|berpikir|思考|v
+変える|かえる|to change|mengubah|改变|v
+増える|ふえる|to increase|bertambah|增加|v
+壊れる|こわれる|to break|rusak|坏|v
+落ちる|おちる|to fall|jatuh|掉落|v
+笑う|わらう|to laugh|tertawa|笑|v
+泣く|なく|to cry|menangis|哭|v
+怒る|おこる|to get angry|marah|生气|v
+起こす|おこす|to wake someone|membangunkan|叫醒|v
+手伝う|てつだう|to help|membantu|帮忙|v
+迎える|むかえる|to welcome|menyambut|迎接|v
+訪ねる|たずねる|to visit|mengunjungi|拜访|v
+褒める|ほめる|to praise|memuji|表扬|v
+謝る|あやまる|to apologize|minta maaf|道歉|v
+間に合う|まにあう|to be in time|tepat waktu|赶上|v
+慣れる|なれる|to get used to|terbiasa|习惯|v
+準備する|じゅんびする|to prepare|menyiapkan|准备|v
+相談する|そうだんする|to consult|berkonsultasi|商量|v
+案内する|あんないする|to guide|memandu|带路|v
+優しい|やさしい|gentle|baik hati|温柔|a
+厳しい|きびしい|strict|ketat|严格|a
+珍しい|めずらしい|rare|langka|稀奇|a
+恥ずかしい|はずかしい|embarrassed|malu|害羞|a
+寂しい|さびしい|lonely|kesepian|寂寞|a
+嬉しい|うれしい|happy|senang|高兴|a
+悲しい|かなしい|sad|sedih|悲伤|a
+怖い|こわい|scary|menakutkan|可怕|a
+眠い|ねむい|sleepy|mengantuk|困|a
+固い|かたい|hard|keras|硬|a
+柔らかい|やわらかい|soft|lembut|柔软|a
+正しい|ただしい|correct|benar|正确|a
+細かい|こまかい|detailed|rinci|细小|a
+大切|たいせつ|important|penting|重要|a
+丁寧|ていねい|polite|sopan|有礼貌|a
+親切|しんせつ|kind|ramah|亲切|a
+簡単|かんたん|simple|gampang|简单|a
+安全|あんぜん|safe|aman|安全|a
+危険|きけん|dangerous|berbahaya|危险|a
+自由|じゆう|free|bebas|自由|a
+特別|とくべつ|special|istimewa|特别|a
+残念|ざんねん|regrettable|sayang sekali|遗憾|a
+必要|ひつよう|necessary|perlu|必要|a
+複雑|ふくざつ|complicated|rumit|复杂|a
+特に|とくに|especially|terutama|特别是|w
+必ず|かならず|surely|pasti|一定|w
+例えば|たとえば|for example|misalnya|例如|w
+急に|きゅうに|suddenly|tiba-tiba|突然|w
+もちろん|もちろん|of course|tentu saja|当然|w
+だんだん|だんだん|gradually|lama-kelamaan|渐渐|w
+なかなか|なかなか|quite|cukup|相当|w
+しっかり|しっかり|firmly|dengan kuat|牢牢地|w
+すっかり|すっかり|completely|sama sekali|完全|w
+はっきり|はっきり|clearly|dengan jelas|清楚地|w`
+};
+
+// Kana to romaji (Hepburn, long vowels written out: koohii, sensei)
+const ROMAJI = (function () {
+  const base = {}, dig = {};
+  'あa いi うu えe おo かka きki くku けke こko さsa しshi すsu せse そso たta ちchi つtsu てte とto なna にni ぬnu ねne のno はha ひhi ふfu へhe ほho まma みmi むmu めme もmo やya ゆyu よyo らra りri るru れre ろro わwa をo がga ぎgi ぐgu げge ごgo ざza じji ずzu ぜze ぞzo だda ぢji づzu でde どdo ばba びbi ぶbu べbe ぼbo ぱpa ぴpi ぷpu ぺpe ぽpo ぁa ぃi ぅu ぇe ぉo ゔvu ゃya ゅyu ょyo'
+    .split(' ').forEach(function (p) { base[p[0]] = p.slice(1); });
+  'きゃkya きゅkyu きょkyo しゃsha しゅshu しょsho ちゃcha ちゅchu ちょcho にゃnya にゅnyu にょnyo ひゃhya ひゅhyu ひょhyo みゃmya みゅmyu みょmyo りゃrya りゅryu りょryo ぎゃgya ぎゅgyu ぎょgyo じゃja じゅju じょjo ぢゃja ぢゅju ぢょjo びゃbya びゅbyu びょbyo ぴゃpya ぴゅpyu ぴょpyo てぃti でぃdi でゅdyu ふぁfa ふぃfi ふぇfe ふぉfo うぃwi うぇwe うぉwo しぇshe じぇje ちぇche つぁtsa'
+    .split(' ').forEach(function (p) { dig[p.slice(0, 2)] = p.slice(2); });
+  function hira(s) { return s.replace(/[ァ-ヶ]/g, function (c) { return String.fromCharCode(c.charCodeAt(0) - 0x60); }); }
+  function syl(s, i) { return dig[s.substr(i, 2)] || base[s[i]] || ''; }
+  return function (kana) {
+    const s = hira(kana); let out = '';
+    for (let i = 0; i < s.length; i++) {
+      const c = s[i];
+      if (c === 'っ') { const nx = syl(s, i + 1); out += nx ? (nx[0] === 'c' ? 't' : nx[0]) : ''; continue; }
+      if (c === 'ー') { const m = out.match(/[aeiou]$/); out += m ? m[0] : ''; continue; }
+      if (c === 'ん') { out += /^[aiueoy]/.test(syl(s, i + 1)) ? "n'" : 'n'; continue; }
+      const d = dig[s.substr(i, 2)];
+      if (d) { out += d; i++; continue; }
+      out += base[c] !== undefined ? base[c] : c;
+    }
+    return out;
+  };
+})();
+</script>
 <script>
 (function () {
 'use strict';
 
 /* ------------------------------------------------------------------ words */
 // w: written, k: kana, en / id / zh meanings, u: unit (wrong answers come from the same unit first)
-const WORDS = [
-  ['先生','せんせい','teacher','guru','老师',1],['学生','がくせい','student','pelajar','学生',1],
-  ['友達','ともだち','friend','teman','朋友',1],['家族','かぞく','family','keluarga','家人',1],
-  ['子供','こども','child','anak','孩子',1],['人','ひと','person','orang','人',1],
-  ['医者','いしゃ','doctor','dokter','医生',1],['母','はは','mother','ibu','母亲',1],
-  ['父','ちち','father','ayah','父亲',1],
-  ['学校','がっこう','school','sekolah','学校',2],['駅','えき','station','stasiun','车站',2],
-  ['病院','びょういん','hospital','rumah sakit','医院',2],['会社','かいしゃ','company','perusahaan','公司',2],
-  ['図書館','としょかん','library','perpustakaan','图书馆',2],['店','みせ','shop','toko','商店',2],
-  ['家','いえ','house','rumah','房子',2],['電車','でんしゃ','train','kereta','电车',2],
-  ['車','くるま','car','mobil','汽车',2],['自転車','じてんしゃ','bicycle','sepeda','自行车',2],
-  ['本','ほん','book','buku','书',3],['机','つくえ','desk','meja','书桌',3],
-  ['紙','かみ','paper','kertas','纸',3],['時計','とけい','clock','jam','钟表',3],
-  ['傘','かさ','umbrella','payung','伞',3],['手紙','てがみ','letter','surat','信',3],
-  ['山','やま','mountain','gunung','山',4],['川','かわ','river','sungai','河',4],
-  ['木','き','tree','pohon','树',4],['水','みず','water','air','水',4],
-  ['火','ひ','fire','api','火',4],['雨','あめ','rain','hujan','雨',4],
-  ['空','そら','sky','langit','天空',4],['魚','さかな','fish','ikan','鱼',4],
-  ['お茶','おちゃ','tea','teh','茶',4],['ご飯','ごはん','meal','nasi','饭',4],
-  ['勉強','べんきょう','study','belajar','学习',5],['食べる','たべる','to eat','makan','吃',5],
-  ['飲む','のむ','to drink','minum','喝',5],['大きい','おおきい','big','besar','大',5],
-  ['新しい','あたらしい','new','baru','新',5]
-].map(function (a, i) { return { i: i, w: a[0], k: a[1], en: a[2], id: a[3], zh: a[4], u: a[5] }; });
+// N5 and N4 words come from words.js (WORD_DATA). Each: written, kana, en, id, zh, group, set.
+const WORDS = [];
+['n5', 'n4'].forEach(function (set) {
+  WORD_DATA[set].trim().split('\n').forEach(function (line) {
+    const f = line.split('|'); if (f.length < 6) return;
+    WORDS.push({ i: WORDS.length, w: f[0], k: f[1], en: f[2], id: f[3], zh: f[4], c: f[5], set: set });
+  });
+});
 
 /* ------------------------------------------------------------------ text */
 const TEXT = {
   en: {
     liveRaid: 'LIVE RAID', answersIn: 'ANSWERS IN', yourName: 'YOUR NAME', level: 'LEVEL',
-    lvlEasy: 'Easy', lvlNormal: 'Normal', lvlHard: 'Hard',
-    hint0: 'Kanji + kana → pick the meaning.', hint1: 'Kanji only → pick the meaning.', hint2: 'Kanji → pick the reading.',
+    lvlEasy: 'Easy', lvlNormal: 'Normal', lvlHard: 'Hard', lvlExpert: 'Expert', words: 'WORDS',
+    hint0: 'Kana + romaji → pick the meaning. No kanji yet.', hint1: 'Kanji + kana → pick the meaning.', hint2: 'Kanji only → pick the meaning.', hint3: 'Kanji → pick the reading.',
     hintZh: '', create: 'Create a room', join: 'Join', codePh: 'CODE',
     srvCn: 'Server: China (Shanghai)', srvGl: 'Server: Global (USA)', switchServer: 'switch',
     roomCode: 'ROOM CODE', shareHint: 'Send this code to your friend. They type it on the first screen and tap Join. You both need the same server.',
     copyInvite: 'Copy invite', copied: 'Copied!', copyFail: 'Copy failed. Just send the code.',
     players: 'PLAYERS', you: 'you', host: 'host', bot: '',
     start: 'Start the raid', startSolo: 'Start alone (practice)', waitHost: 'Waiting for the host to start…', leave: 'Leave',
-    howto: 'Left thumb: slide to run, flick up or tap to jump. Right thumb: tap an answer, or flick toward it. Right answers throw shuriken at the Kappa. Dodge the pink attacks! On a computer: A/D run, W jump, arrow keys answer.',
+    howto: 'Left thumb: touch anywhere on the left side and slide to run (the stick follows your thumb); flick up or tap to jump. Right thumb: tap an answer, or flick toward it. Pink zones are warnings: get out before they hit. Only the small glowing dot on your ninja counts as a hit. On a computer: A/D run, W jump, arrow keys answer.',
+    speed: 'MONSTER SPEED', spCalm: 'Calm', spNormal: 'Normal', spFierce: 'Fierce',
     connecting: 'Connecting to the server…', online: 'Connected.', offline: 'Can’t reach the server. Check the internet, or both switch server.',
     needCode: 'Type the 4-letter room code first.', noRoom: 'No one is hosting this code yet. Check the code, or ask your friend to create the room first. Still listening…',
     roomFull: 'This room is full (4 players).', inProgress: 'A raid is running in this room. You’ll join the next one.',
@@ -265,15 +752,16 @@ const TEXT = {
   },
   id: {
     liveRaid: 'RAID LANGSUNG', answersIn: 'BAHASA JAWABAN', yourName: 'NAMAMU', level: 'TINGKAT',
-    lvlEasy: 'Mudah', lvlNormal: 'Normal', lvlHard: 'Sulit',
-    hint0: 'Kanji + kana → pilih artinya.', hint1: 'Kanji saja → pilih artinya.', hint2: 'Kanji → pilih cara bacanya.',
+    lvlEasy: 'Mudah', lvlNormal: 'Normal', lvlHard: 'Sulit', lvlExpert: 'Ahli', words: 'KOSAKATA',
+    hint0: 'Kana + romaji → pilih artinya. Belum ada kanji.', hint1: 'Kanji + kana → pilih artinya.', hint2: 'Kanji saja → pilih artinya.', hint3: 'Kanji → pilih cara bacanya.',
     hintZh: '', create: 'Buat room', join: 'Gabung', codePh: 'KODE',
     srvCn: 'Server: China (Shanghai)', srvGl: 'Server: Global (AS)', switchServer: 'ganti',
     roomCode: 'KODE ROOM', shareHint: 'Kirim kode ini ke temanmu. Dia ketik di layar awal lalu tekan Gabung. Kalian harus pakai server yang sama.',
     copyInvite: 'Salin undangan', copied: 'Disalin!', copyFail: 'Gagal menyalin. Kirim kodenya saja.',
     players: 'PEMAIN', you: 'kamu', host: 'host', bot: '',
     start: 'Mulai raid', startSolo: 'Mulai sendiri (latihan)', waitHost: 'Menunggu host memulai…', leave: 'Keluar',
-    howto: 'Jempol kiri: geser untuk lari, sentil ke atas atau ketuk untuk lompat. Jempol kanan: ketuk jawaban, atau sentil ke arahnya. Jawaban benar melempar shuriken ke Kappa. Hindari serangan pink! Di komputer: A/D lari, W lompat, tombol panah menjawab.',
+    howto: 'Jempol kiri: sentuh di mana saja di sisi kiri lalu geser untuk lari (stik mengikuti jempolmu); sentil ke atas atau ketuk untuk lompat. Jempol kanan: ketuk jawaban, atau sentil ke arahnya. Zona pink adalah peringatan: keluar sebelum kena. Hanya titik kecil yang menyala di ninjamu yang dihitung kena. Di komputer: A/D lari, W lompat, tombol panah menjawab.',
+    speed: 'KECEPATAN MONSTER', spCalm: 'Santai', spNormal: 'Normal', spFierce: 'Ganas',
     connecting: 'Menghubungkan ke server…', online: 'Terhubung.', offline: 'Server tidak terjangkau. Cek internet, atau kalian berdua ganti server.',
     needCode: 'Ketik kode room 4 huruf dulu.', noRoom: 'Belum ada yang membuat room dengan kode ini. Cek kodenya, atau minta temanmu membuat room dulu. Masih menunggu…',
     roomFull: 'Room ini penuh (4 pemain).', inProgress: 'Raid sedang berjalan di room ini. Kamu ikut ronde berikutnya.',
@@ -284,15 +772,16 @@ const TEXT = {
   },
   zh: {
     liveRaid: '实时团战', answersIn: '答案语言', yourName: '你的名字', level: '难度',
-    lvlEasy: '简单', lvlNormal: '普通', lvlHard: '困难',
-    hint0: '汉字＋假名 → 选意思。', hint1: '只有汉字 → 选意思。', hint2: '汉字 → 选读音。',
-    hintZh: '提示：你本来就认识汉字的意思，选「困难」练读音更有用。', create: '创建房间', join: '加入', codePh: '房间码',
+    lvlEasy: '简单', lvlNormal: '普通', lvlHard: '困难', lvlExpert: '专家', words: '词汇',
+    hint0: '假名＋罗马字 → 选意思。不考汉字。', hint1: '汉字＋假名 → 选意思。', hint2: '只有汉字 → 选意思。', hint3: '汉字 → 选读音。',
+    hintZh: '提示：你本来就认识汉字的意思，选「专家」练读音更有用。', create: '创建房间', join: '加入', codePh: '房间码',
     srvCn: '服务器：中国（上海）', srvGl: '服务器：全球（美国）', switchServer: '切换',
     roomCode: '房间码', shareHint: '把房间码发给朋友，在首页输入后点「加入」。两个人要用同一个服务器。',
     copyInvite: '复制邀请', copied: '已复制！', copyFail: '复制失败，直接发房间码吧。',
     players: '玩家', you: '你', host: '房主', bot: '',
     start: '开始团战', startSolo: '一个人开始（练习）', waitHost: '等待房主开始…', leave: '离开',
-    howto: '左手拇指：左右滑动跑，向上划或轻点跳。右手拇指：点答案，或朝答案的方向划。答对就向河童扔手里剑。躲开粉色攻击！电脑：A/D 跑，W 跳，方向键答题。',
+    howto: '左手拇指：在左半边任意位置按住滑动就能跑（摇杆会跟着你的拇指）；向上划或轻点跳。右手拇指：点答案，或朝答案的方向划。粉色区域是预警：在打中前离开。只有忍者身上发光的小点才算被击中。电脑：A/D 跑，W 跳，方向键答题。',
+    speed: '怪物速度', spCalm: '轻松', spNormal: '普通', spFierce: '激烈',
     connecting: '正在连接服务器…', online: '已连接。', offline: '连不上服务器。请检查网络，或两个人都点「切换」。',
     needCode: '请先输入4位房间码。', noRoom: '还没有人用这个房间码开房。请检查房间码，或让朋友先创建房间。继续等待中…',
     roomFull: '房间已满（4人）。', inProgress: '这个房间正在团战，下一局再加入。',
@@ -309,13 +798,15 @@ const TEST = qs.get('test') === '1';
 const SERVERS = { cn: 'wss://broker-cn.emqx.io:8084/mqtt', gl: 'wss://broker.emqx.io:8084/mqtt' };
 const KEY = 'tango-raid-v1';
 function loadSettings() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
-function saveSettings() { try { localStorage.setItem(KEY, JSON.stringify({ name: S.name, lang: S.lang, lvl: S.lvl, srv: S.srv })); } catch (e) {} }
+function saveSettings() { try { localStorage.setItem(KEY, JSON.stringify({ v: 2, name: S.name, lang: S.lang, lvl: S.lvl, srv: S.srv, speed: S.speed, set: S.set })); } catch (e) {} }
 const saved = loadSettings();
 const S = {
   name: saved.name || '',
   lang: saved.lang || guessLang(),
-  lvl: typeof saved.lvl === 'number' ? saved.lvl : 0,
-  srv: qs.get('s') === 'gl' ? 'gl' : (qs.get('s') === 'cn' ? 'cn' : (saved.srv || 'cn'))
+  lvl: typeof saved.lvl === 'number' ? (saved.v === 2 ? saved.lvl : Math.min(3, saved.lvl + 1)) : 1,
+  set: saved.set || 'n5',
+  srv: qs.get('s') === 'gl' ? 'gl' : (qs.get('s') === 'cn' ? 'cn' : (saved.srv || 'cn')),
+  speed: saved.speed || 'normal'
 };
 function guessLang() {
   const l = (navigator.language || 'en').toLowerCase();
@@ -344,8 +835,8 @@ function applyText() {
   document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = t(el.getAttribute('data-t')); });
   $('codeIn').placeholder = t('codePh');
   $('srvName').textContent = S.srv === 'cn' ? t('srvCn') : t('srvGl');
-  $('lvlHint').textContent = t('hint' + S.lvl) + (S.lang === 'zh' && S.lvl < 2 ? ' ' + t('hintZh') : '');
-  segOn('langSeg', S.lang); segOn('lvlSeg', String(S.lvl));
+  $('lvlHint').textContent = t('hint' + S.lvl) + (S.lang === 'zh' && S.lvl < 3 ? ' ' + t('hintZh') : '');
+  segOn('langSeg', S.lang); segOn('lvlSeg', String(S.lvl)); segOn('speedSeg', S.speed); segOn('setSeg', S.set);
   if (screen === 'room') renderRoom();
 }
 function segOn(id, v) { $(id).querySelectorAll('button').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-v') === v); }); }
@@ -507,6 +998,8 @@ function readName() {
 }
 $('langSeg').addEventListener('click', function (e) { const b = e.target.closest('button'); if (!b) return; S.lang = b.getAttribute('data-v'); saveSettings(); applyText(); });
 $('lvlSeg').addEventListener('click', function (e) { const b = e.target.closest('button'); if (!b) return; S.lvl = +b.getAttribute('data-v'); saveSettings(); applyText(); });
+$('setSeg').addEventListener('click', function (e) { const b = e.target.closest('button'); if (!b) return; S.set = b.getAttribute('data-v'); saveSettings(); applyText(); });
+$('speedSeg').addEventListener('click', function (e) { const b = e.target.closest('button'); if (!b) return; S.speed = b.getAttribute('data-v'); saveSettings(); applyText(); });
 $('srvSwap').addEventListener('click', function () { S.srv = S.srv === 'cn' ? 'gl' : 'cn'; saveSettings(); applyText(); $('lobbyMsg').textContent = ''; });
 $('createBtn').addEventListener('click', function () { readName(); enterRoom(code4(), true); });
 $('joinBtn').addEventListener('click', function () {
@@ -544,6 +1037,7 @@ function renderRoom() {
   });
   const n = list.length;
   $('startBtn').hidden = !Net.isHost;
+  $('speedField').hidden = !Net.isHost;
   $('startBtn').textContent = n > 1 ? t('start') : t('startSolo');
   $('waitHost').hidden = Net.isHost;
   renderNet();
@@ -574,25 +1068,30 @@ function freshMe() { return { x: 180, y: 0, vy: 0, hearts: 3, inv: 0, down: fals
 
 /* host-only */
 const Host = { nextAtk: 0, shots: 0, lastHp: 0, ticker: 0 };
+// Timing in ms. Human reaction to a warning is about 0.2-0.3 s, and slower while you're reading a question,
+// so warnings last well over a second and there is a real pause after every attack.
+const TUNE = { tele: 1600, teleRage: 1200, gap: [2400, 3200], gapRage: [1700, 2300], first: 4000, warmup: 20000, slamW: 120, sweepMs: 1700, orbFall: 900, inv: 1800 };
+const SPEEDS = { calm: { t: 1.35, g: 1.4 }, normal: { t: 1, g: 1 }, fierce: { t: 0.8, g: 0.75 } };
 function hostStart() {
   const ids = [myId].concat(Object.keys(Net.peers).filter(function (id) { return Net.peers[id].st !== 'raid'; })).slice(0, 4);
   const hpMax = HP_PER_PLAYER * ids.length;
-  const m = { t: 'start', ids: ids, max: hpMax, dur: DUR };
+  const m = { t: 'start', ids: ids, max: hpMax, dur: DUR, sp: S.speed };
   Net.send(m);
   startRaid(m);
 }
 function startRaid(m) {
   G.ids = m.ids.slice(); G.hpMax = m.max; G.hp = m.max; G.sc = 0;
   G.startedAt = Date.now(); G.endAt = G.startedAt + (m.dur || DUR);
+  G.speed = SPEEDS[m.sp] || SPEEDS.normal; G.jumpBuf = 0;
   G.me = freshMe(); G.others = {}; G.attacks = []; G.fx = []; G.stats = {}; G.shake = 0;
   const n = G.ids.length;
-  const spots = n === 1 ? [180] : n === 2 ? [120, 240] : n === 3 ? [90, 180, 270] : [70, 140, 220, 290];
+  const spots = n === 1 ? [180] : n === 2 ? [90, 270] : n === 3 ? [70, 180, 290] : [50, 135, 225, 310];
   G.ids.forEach(function (id, i) { if (id === myId) G.me.x = spots[i]; else { const o = other(id); o.x = o.tx = spots[i]; } });
   G.running = true;
   $('result').hidden = true;
   show('raid');
   if (Net.isHost) {
-    Host.nextAtk = Date.now() + 2600; Host.shots = 0;
+    Host.nextAtk = Date.now() + TUNE.first * G.speed.g; Host.shots = 0;
     clearInterval(Host.ticker); Host.ticker = setInterval(hostTick, 100);
   }
   Net.hello();
@@ -630,22 +1129,25 @@ function hostEnd(win) {
   endRaid(win, false, secs);
 }
 function spawnAttack(now) {
+  const sp = G.speed || SPEEDS.normal;
   const rage = G.hp < G.hpMax / 2;
-  const tele = rage ? 850 : 1150;
-  const r = Math.random();
-  let a;
+  const warm = now - G.startedAt < TUNE.warmup;          // first 20 s: only slams, extra warning time
+  const tele = Math.round((rage ? TUNE.teleRage : TUNE.tele) * sp.t * (warm ? 1.15 : 1));
+  const r = warm ? 0 : Math.random();
+  let a, dur;
   if (r < 0.4) {
     const xs = [G.me.x]; Object.keys(G.others).forEach(function (id) { xs.push(G.others[id].tx); });
     const x = Math.max(70, Math.min(290, xs[Math.floor(Math.random() * xs.length)] + (Math.random() * 60 - 30)));
-    a = { t: 'atk', k: 'slam', x: Math.round(x), w: 130, in: tele };
+    a = { t: 'atk', k: 'slam', x: Math.round(x), w: TUNE.slamW, in: tele }; dur = 420;
   } else if (r < 0.75) {
     const lanes = [30, 70, 110, 150, 190, 230, 270, 310, 340].sort(function () { return Math.random() - 0.5; });
-    a = { t: 'atk', k: 'volley', xs: lanes.slice(0, rage ? 5 : 4), in: tele };
+    a = { t: 'atk', k: 'volley', xs: lanes.slice(0, rage ? 4 : 3), in: tele }; dur = 300;
   } else {
-    a = { t: 'atk', k: 'sweep', d: Math.random() < 0.5 ? 1 : -1, in: tele };
+    a = { t: 'atk', k: 'sweep', d: Math.random() < 0.5 ? 1 : -1, in: tele }; dur = TUNE.sweepMs;
   }
   Net.send(a); addAttack(a);
-  Host.nextAtk = now + tele + (rage ? 1100 + Math.random() * 500 : 1600 + Math.random() * 700);
+  const g = rage ? TUNE.gapRage : TUNE.gap;            // the pause starts only after the attack is over
+  Host.nextAtk = now + tele + dur + (g[0] + Math.random() * (g[1] - g[0])) * sp.g;
 }
 
 /* ------------------------------------------------------------------ attacks (every client draws them; each checks only its own player) */
@@ -655,26 +1157,27 @@ function addAttack(m) {
   const a = { k: m.k, at: now + tele, tele: tele, hit: false };
   if (m.k === 'slam') { a.x = +m.x || 180; a.w = +m.w || 130; a.end = a.at + 420; }
   else if (m.k === 'volley') { a.xs = (m.xs || []).map(Number).slice(0, 6); a.end = a.at + 300; }
-  else if (m.k === 'sweep') { a.d = m.d === -1 ? -1 : 1; a.end = a.at + 1400; }
+  else if (m.k === 'sweep') { a.d = m.d === -1 ? -1 : 1; a.dur = TUNE.sweepMs; a.end = a.at + a.dur + 100; }
   else return;
   G.attacks.push(a);
 }
-function sweepX(a, now) { const p = (now - a.at) / 1300; return a.d > 0 ? -20 + p * 400 : 380 - p * 400; }
+function sweepX(a, now) { const p = (now - a.at) / (a.dur || 1300); return a.d > 0 ? -20 + p * 400 : 380 - p * 400; }
 function checkAttacks(now) {
   const me = G.me;
   G.attacks.forEach(function (a) {
     if (a.hit || now < a.at || me.down) return;
-    if (a.k === 'slam' && now <= a.at + 220) { if (Math.abs(me.x - a.x) < a.w / 2 + 6) { a.hit = true; hurt(); } }
+    // forgiving hitboxes: only the small core of your ninja counts, and only the middle of each warning hurts
+    if (a.k === 'slam' && now <= a.at + 220) { if (Math.abs(me.x - a.x) < a.w / 2 - 14) { a.hit = true; hurt(); } }
     else if (a.k === 'volley' && now <= a.at + 140) {
-      for (let i = 0; i < a.xs.length; i++) { if (Math.abs(me.x - a.xs[i]) < 24 && me.y < 46) { a.hit = true; hurt(); break; } }
-    } else if (a.k === 'sweep' && now <= a.at + 1300) { if (Math.abs(me.x - sweepX(a, now)) < 18 && me.y < 36) { a.hit = true; hurt(); } }
+      for (let i = 0; i < a.xs.length; i++) { if (Math.abs(me.x - a.xs[i]) < 14 && me.y < 30) { a.hit = true; hurt(); break; } }
+    } else if (a.k === 'sweep' && now <= a.at + a.dur) { if (Math.abs(me.x - sweepX(a, now)) < 12 && me.y < 22) { a.hit = true; hurt(); } }
   });
   G.attacks = G.attacks.filter(function (a) { return now < a.end; });
 }
 function hurt() {
   const me = G.me, now = Date.now();
   if (now < me.inv || me.down) return;
-  me.hearts--; me.hits++; me.inv = now + 1200; G.shake = now;
+  me.hearts--; me.hits++; me.inv = now + TUNE.inv; G.shake = now;
   sfx.hurt(); try { navigator.vibrate && navigator.vibrate(60); } catch (e) {}
   if (me.hearts <= 0) { me.hearts = 0; me.down = true; me.downUntil = now + 6000; lockAnswers(true); }
   Net.send({ t: 'me', h: me.hearts, d: me.down ? 1 : 0 });
@@ -685,27 +1188,37 @@ function hurt() {
 const recentMiss = [];
 let lastWord = -1;
 function meaningOf(w) { return w[S.lang] || w.en; }
+function activePool() {
+  const inSet = WORDS.filter(function (x) { return S.set === 'both' || x.set === S.set; });
+  return S.lvl === 3 ? inSet.filter(function (x) { return x.w !== x.k; }) : inSet;   // Expert asks readings, so kana-only words are skipped
+}
 function nextQuestion() {
-  let w;
-  if (recentMiss.length && Math.random() < 0.4) w = WORDS[recentMiss.shift()];
-  else { do { w = WORDS[Math.floor(Math.random() * WORDS.length)]; } while (w.i === lastWord); }
+  const P = activePool();
+  let w = null;
+  while (recentMiss.length && !w && Math.random() < 0.4) { const c = WORDS[recentMiss.shift()]; if (P.indexOf(c) >= 0) w = c; }
+  if (!w) { do { w = P[Math.floor(Math.random() * P.length)]; } while (w.i === lastWord && P.length > 1); }
   lastWord = w.i;
-  const hard = S.lvl === 2;
-  const val = function (x) { return hard ? x.k : meaningOf(x); };
+  const reading = S.lvl === 3;
+  const val = function (x) { return reading ? x.k : meaningOf(x); };
   const answer = val(w);
-  const pool = WORDS.filter(function (x) { return x.i !== w.i && val(x) !== answer; });
-  const same = pool.filter(function (x) { return x.u === w.u; });
-  const pickFrom = (S.lvl === 0 ? pool : same.length >= 3 ? same : pool).slice().sort(function () { return Math.random() - 0.5; });
+  const pool = P.filter(function (x) { return x.i !== w.i && val(x) !== answer; });
+  const same = pool.filter(function (x) { return x.c === w.c; });
+  const pickFrom = (S.lvl === 0 && Math.random() < 0.5 ? pool : same.length >= 3 ? same : pool).slice().sort(function () { return Math.random() - 0.5; });
   const opts = [answer];
   for (let i = 0; i < pickFrom.length && opts.length < 4; i++) { const v = val(pickFrom[i]); if (opts.indexOf(v) < 0) opts.push(v); }
   for (let i = 0; i < pool.length && opts.length < 4; i++) { const v = val(pool[i]); if (opts.indexOf(v) < 0) opts.push(v); }
   opts.sort(function () { return Math.random() - 0.5; });
   G.q = { w: w, opts: opts, correct: opts.indexOf(answer) };
   G.qAt = Date.now();
-  $('qWord').textContent = w.w;
-  $('qSub').textContent = S.lvl === 0 ? w.k : (hard ? t('reading') : t('meaning'));
+  // Easy: kana with romaji. Normal: written form with kana. Hard: written form only. Expert: pick the reading.
+  const word = S.lvl === 0 ? w.k : w.w;
+  const sub = S.lvl === 0 ? ROMAJI(w.k) : S.lvl === 1 ? (w.w !== w.k ? w.k : t('meaning')) : (reading ? t('reading') : t('meaning'));
+  const len = word.length, small = window.innerHeight <= 720 ? 0.84 : 1;
+  $('qWord').style.fontSize = Math.round((len <= 2 ? 44 : len === 3 ? 40 : len === 4 ? 34 : len === 5 ? 29 : len === 6 ? 25 : 22) * small) + 'px';
+  $('qWord').textContent = word;
+  $('qSub').textContent = sub;
   $('qbar').className = 'qbar';
-  $('qTag').textContent = 'T' + (S.lvl + 1); $('qTag').className = 'qtag t' + (S.lvl + 1);
+  $('qTag').textContent = 'T' + S.lvl; $('qTag').className = 'qtag t' + S.lvl;
   const arrows = [['↑ ', ''], ['← ', ''], ['', ' →'], ['↓ ', '']];
   ANS.forEach(function (b, i) { const o = opts[i] || ''; b.textContent = arrows[i][0] + o + arrows[i][1]; b.className = 'ans ' + 'ulrd'[i] + (o.length > 9 ? ' long' : ''); });
   lockAnswers(G.me && G.me.down);
@@ -733,32 +1246,6 @@ function answer(i) {
   }
   renderHud();
 }
-// Right thumb: tap an answer, or flick up / left / right / down anywhere outside the stick.
-const ctl = $('ctl');
-let fp = null;
-ctl.addEventListener('pointerdown', function (e) {
-  if (e.target.closest('#stick') || e.target.closest('#skillBtn') || fp) return;
-  e.preventDefault();
-  try { ctl.setPointerCapture(e.pointerId); } catch (err) {}
-  fp = { id: e.pointerId, x0: e.clientX, y0: e.clientY, fired: false, btn: e.target.closest('.ans') };
-});
-ctl.addEventListener('pointermove', function (e) {
-  if (!fp || e.pointerId !== fp.id || fp.fired) return;
-  const dx = e.clientX - fp.x0, dy = e.clientY - fp.y0;
-  if (Math.sqrt(dx * dx + dy * dy) < 28) return;
-  fp.fired = true;
-  const dir = Math.abs(dx) > Math.abs(dy) ? (dx < 0 ? 1 : 2) : (dy < 0 ? 0 : 3);
-  const pad = $('pad'); pad.classList.add('hit'); setTimeout(function () { pad.classList.remove('hit'); }, 160);
-  answer(dir);
-});
-function flickEnd(e) {
-  if (!fp || e.pointerId !== fp.id) return;
-  const dx = e.clientX - fp.x0, dy = e.clientY - fp.y0;
-  if (!fp.fired && fp.btn && Math.sqrt(dx * dx + dy * dy) < 14) answer(+fp.btn.getAttribute('data-i'));
-  fp = null;
-}
-ctl.addEventListener('pointerup', flickEnd);
-ctl.addEventListener('pointercancel', flickEnd);
 $('skillBtn').addEventListener('pointerdown', function (e) { e.preventDefault(); useSkill(); });
 function useSkill() {
   if (!G.running || G.me.down || G.me.charge < CHARGE) return;
@@ -787,7 +1274,7 @@ function renderHud() {
   const sb = $('skillBtn');
   const ready = me.charge >= CHARGE && !me.down;
   sb.classList.toggle('ready', ready);
-  sb.textContent = '手裏剣乱舞 · ' + (ready ? t('ready') : me.charge + '/' + CHARGE);
+  sb.innerHTML = '手裏剣乱舞<br>' + (ready ? t('ready') : me.charge + ' / ' + CHARGE);
 }
 function fmtTime(ms) { const s = Math.max(0, Math.ceil(ms / 1000)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
 
@@ -846,31 +1333,64 @@ $('againBtn').addEventListener('click', function () {
 });
 
 /* ------------------------------------------------------------------ input */
-const stick = $('stick'), knob = $('knob');
-let sp = null;
-function jump() { const me = G.me; if (!me || me.down || me.y > 0) return; me.vy = 600; }
-stick.addEventListener('pointerdown', function (e) {
-  e.preventDefault();
-  try { stick.setPointerCapture(e.pointerId); } catch (err) {}
-  sp = { id: e.pointerId, x0: e.clientX, y0: e.clientY, t0: Date.now(), moved: false, armed: true };
-});
-stick.addEventListener('pointermove', function (e) {
-  if (!sp || e.pointerId !== sp.id) return;
-  const dx = e.clientX - sp.x0, dy = e.clientY - sp.y0;
-  if (Math.abs(dx) > 8 || Math.abs(dy) > 8) sp.moved = true;
-  G.moveX = Math.max(-1, Math.min(1, dx / 38));
-  if (dy < -26 && sp.armed) { jump(); sp.armed = false; }
-  if (dy > -10) sp.armed = true;
-  const kx = Math.max(-40, Math.min(40, dx)), ky = Math.max(-40, Math.min(40, dy));
-  knob.style.transform = 'translate(' + kx + 'px,' + ky + 'px)';
-});
-function stickEnd(e) {
-  if (!sp || e.pointerId !== sp.id) return;
-  if (!sp.moved && Date.now() - sp.t0 < 250) jump();
-  sp = null; G.moveX = 0; knob.style.transform = '';
+// Left half of the control area: a floating joystick that jumps to wherever your thumb lands.
+// Right half, or any answer button: tap an answer, or flick toward it.
+const stickEl = $('stick'), knob = $('knob'), ctl = $('ctl');
+let joy = null, fp = null;
+function jump() {
+  const me = G.me; if (!me || me.down) return;
+  if (me.y > 0) { G.jumpBuf = Date.now() + 160; return; }   // pressed a little early: jump as soon as you land
+  me.vy = 600;
 }
-stick.addEventListener('pointerup', stickEnd);
-stick.addEventListener('pointercancel', stickEnd);
+ctl.addEventListener('pointerdown', function (e) {
+  if (e.target.closest('#skillBtn')) return;
+  e.preventDefault();
+  const btn = e.target.closest('.ans');
+  const r = ctl.getBoundingClientRect();
+  try { ctl.setPointerCapture(e.pointerId); } catch (err) {}
+  if (!btn && !joy && e.clientX < r.left + r.width / 2) {
+    const sr = stickEl.getBoundingClientRect();
+    let ox = e.clientX - (sr.left + sr.width / 2), oy = e.clientY - (sr.top + sr.height / 2);
+    ox = Math.max(-(sr.left - r.left), Math.min(r.width / 2 - (sr.left - r.left) - sr.width / 2, ox));
+    oy = Math.max(-(sr.top - r.top), Math.min(20, oy));
+    joy = { id: e.pointerId, x0: e.clientX, y0: e.clientY, t0: Date.now(), moved: false, armed: true };
+    stickEl.classList.add('on');
+    stickEl.style.transform = 'translate(' + Math.round(ox) + 'px,' + Math.round(oy) + 'px)';
+  } else if (!fp) {
+    fp = { id: e.pointerId, x0: e.clientX, y0: e.clientY, fired: false, btn: btn };
+  }
+});
+ctl.addEventListener('pointermove', function (e) {
+  if (joy && e.pointerId === joy.id) {
+    const dx = e.clientX - joy.x0, dy = e.clientY - joy.y0;
+    if (Math.abs(dx) > 8 || Math.abs(dy) > 8) joy.moved = true;
+    const ax = Math.abs(dx) < 6 ? 0 : (dx - Math.sign(dx) * 6) / 32;   // small dead zone, full speed at ~38 px
+    G.moveX = Math.max(-1, Math.min(1, ax));
+    if (dy < -26 && joy.armed) { jump(); joy.armed = false; }
+    if (dy > -10) joy.armed = true;
+    const kx = Math.max(-46, Math.min(46, dx)), ky = Math.max(-46, Math.min(46, dy));
+    knob.style.transform = 'translate(' + kx + 'px,' + ky + 'px)';
+  } else if (fp && e.pointerId === fp.id && !fp.fired) {
+    const dx = e.clientX - fp.x0, dy = e.clientY - fp.y0;
+    if (Math.sqrt(dx * dx + dy * dy) < 28) return;
+    fp.fired = true;
+    const dir = Math.abs(dx) > Math.abs(dy) ? (dx < 0 ? 1 : 2) : (dy < 0 ? 0 : 3);
+    const pad = $('pad'); pad.classList.add('hit'); setTimeout(function () { pad.classList.remove('hit'); }, 160);
+    answer(dir);
+  }
+});
+function ctlEnd(e) {
+  if (joy && e.pointerId === joy.id) {
+    if (!joy.moved && Date.now() - joy.t0 < 250) jump();
+    joy = null; G.moveX = 0; knob.style.transform = ''; stickEl.style.transform = ''; stickEl.classList.remove('on');
+  } else if (fp && e.pointerId === fp.id) {
+    const dx = e.clientX - fp.x0, dy = e.clientY - fp.y0;
+    if (!fp.fired && fp.btn && Math.sqrt(dx * dx + dy * dy) < 14) answer(+fp.btn.getAttribute('data-i'));
+    fp = null;
+  }
+}
+ctl.addEventListener('pointerup', ctlEnd);
+ctl.addEventListener('pointercancel', ctlEnd);
 window.addEventListener('keydown', function (e) {
   if (screen !== 'raid' || e.target.tagName === 'INPUT') return;
   const k = e.key;
@@ -1090,6 +1610,7 @@ function star(x, y, r, rot) {
   ctx.beginPath(); ctx.arc(0, 0, r * 0.22, 0, Math.PI * 2); ctx.fillStyle = '#1B1035'; ctx.fill();
   ctx.restore();
 }
+const SHOW_PET = false;                 // Tetsu beside each ninja: off for now, set true to bring him back
 function ninja(x, y, color, alpha, name, isMe, down, now) {
   const gy = GROUND - y;
   const flip = x > 180;                 // everyone faces the Kappa
@@ -1118,7 +1639,7 @@ function ninja(x, y, color, alpha, name, isMe, down, now) {
     ctx.beginPath(); ctx.moveTo(15, -53); ctx.quadraticCurveTo(25, -52 + Math.sin(now / 140) * 3, 29, -45); ctx.stroke();
   }
   ctx.restore();
-  if (IMG.tetsu.complete && IMG.tetsu.naturalWidth) {
+  if (SHOW_PET && IMG.tetsu.complete && IMG.tetsu.naturalWidth) {
     const th = 40, tw = th * IMG.tetsu.naturalWidth / IMG.tetsu.naturalHeight;
     const bob = Math.sin(now / 380 + x) * 3;
     const tx = flip ? x + 22 : x - 22 - tw;
@@ -1174,8 +1695,8 @@ function draw(now) {
         if (pre > 0) {
           ctx.strokeStyle = 'rgba(255,79,163,.85)'; ctx.lineWidth = 2; ctx.setLineDash([4, 4]);
           ctx.beginPath(); ctx.ellipse(x, GROUND + 3, 22, 7, 0, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
-          if (pre < 600) {
-            const k = 1 - pre / 600, oy0 = MONY + 102;
+          if (pre < TUNE.orbFall) {
+            const k = 1 - pre / TUNE.orbFall, oy0 = MONY + 102;
             const ox = 180 + (x - 180) * k, oy = oy0 + (GROUND - oy0) * k;
             ctx.fillStyle = 'rgba(255,79,163,.3)'; ctx.beginPath(); ctx.arc(ox, oy, 14, 0, Math.PI * 2); ctx.fill();
             ctx.fillStyle = '#FF4FA3'; ctx.beginPath(); ctx.arc(ox, oy, 7, 0, Math.PI * 2); ctx.fill();
@@ -1209,6 +1730,10 @@ function draw(now) {
   if (me) {
     const blink = now < me.inv && Math.floor(now / 90) % 2 === 0;
     ninja(me.x, me.y, '#2EE6D6', me.down ? 0.45 : blink ? 0.35 : 1, S.name, true, me.down, now);
+    if (!me.down && G.attacks.length) {          // the only spot that counts as a hit
+      ctx.save(); ctx.fillStyle = '#2EE6D6'; ctx.strokeStyle = '#F6F1E7'; ctx.lineWidth = 1.5; ctx.shadowColor = '#2EE6D6'; ctx.shadowBlur = 10;
+      ctx.beginPath(); ctx.arc(me.x, GROUND - me.y - 16, 4.5, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); ctx.restore();
+    }
   }
   // shuriken, damage numbers, team-strike slashes
   G.fx.forEach(function (f) {
@@ -1243,7 +1768,7 @@ function frame(ts) {
       if (me.down && now >= me.downUntil) { me.down = false; me.hearts = 2; me.inv = now + 1500; lockAnswers(false); Net.send({ t: 'me', h: 2, d: 0 }); }
       let mv = G.moveX; if (G.keys.l) mv = -1; if (G.keys.r) mv = 1;
       if (!me.down) me.x = Math.max(20, Math.min(W - 20, me.x + mv * 230 * dt));
-      if (me.y > 0 || me.vy > 0) { me.vy -= 1600 * dt; me.y += me.vy * dt; if (me.y <= 0) { me.y = 0; me.vy = 0; } }
+      if (me.y > 0 || me.vy > 0) { me.vy -= 1600 * dt; me.y += me.vy * dt; if (me.y <= 0) { me.y = 0; me.vy = 0; if (G.jumpBuf > now && !me.down) { me.vy = 600; G.jumpBuf = 0; } } }
       checkAttacks(now);
       if ((Math.abs(me.x - lastPos.x) > 1.5 || Math.abs(me.y - lastPos.y) > 1.5) && now - lastPos.t > 110 || now - lastPos.t > 1000) {
         lastPos = { x: me.x, y: me.y, t: now };
@@ -1272,7 +1797,7 @@ if (TEST) {
   window.__raid = {
     G: G, S: S, Net: Net, myId: myId,
     correct: function () { return G.q ? G.q.correct : -1; },
-    answer: answer, useSkill: useSkill, hurt: hurt, screen: function () { return screen; }
+    answer: answer, useSkill: useSkill, hurt: hurt, addAttack: addAttack, next: nextQuestion, words: WORDS, screen: function () { return screen; }
   };
 }
 })();
