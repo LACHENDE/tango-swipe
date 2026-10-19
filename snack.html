@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#171328"><title>Tetsu’s Snack Run · Tango Swipe</title><link rel="stylesheet" href="snack.css"></head>
+<body><main>
+<header class="top"><a href="lab.html" data-t="games">← Games</a><span>TANGO SWIPE</span><button id="lang">中文</button></header>
+<section id="home">
+ <div class="tag" data-t="tag">A LITTLE ADVENTURE FOR TWO</div><h1 data-t="title">Tetsu’s<br>Snack Run</h1><p class="intro" data-t="intro">Two friends. One hungry ninja dog.<br>Get him across the river. Bring back the snacks.</p>
+ <div class="poster"><div class="poster-moon"></div><span class="poster-kana" lang="ja">おやつ</span><img src="assets/characters/tetsu.png" alt="Tetsu" class="poster-pet"><span class="snack one">🍡</span><span class="snack two">🍙</span><span class="snack three">🍓</span><div class="poster-river"></div></div>
+ <div class="features"><span data-t="coop">2-player co-op</span><span data-t="kana">Hiragana only</span><span data-t="short">3–5 minutes</span></div>
+ <button class="primary" id="create" data-t="create">Start an adventure</button>
+ <form id="joinForm"><label class="sr-only" for="code" data-t="room">Room code</label><input id="code" maxlength="6" placeholder="ROOM CODE" autocapitalize="characters" autocomplete="off" spellcheck="false"><button data-t="join">Join friend</button></form>
+ <button class="secondary" id="practice" data-t="practice">Try with a practice partner →</button>
+ <label class="route-label"><span data-t="connection">Connection</span><select id="server"><option value="gl" data-t="global">International</option><option value="cn" data-t="china">China route</option></select></label>
+ <p class="tiny" data-t="routeHelp">The invite keeps you on the same connection. If a room won’t connect, try the other route together.</p><p id="homeNote" class="note" role="status"></p>
+ <details><summary data-t="how">How do we play?</summary><p data-t="rules">You each get a different word. Read it, remember it, then tap its kana — or say it into the mic. Both words complete one bridge. Eight bridges get Tetsu home!</p><p data-t="rules2">Finish early? Send your friend a hint. After four bridges, choose a safe path or a shorter timer for double snacks. You share three hearts, so help each other.</p><p data-t="voiceInfo">Voice is optional. Your browser may use an online speech service. Mic audio and transcripts are not sent to your friend. You can keep playing with kana tiles if voice doesn’t work.</p></details>
+</section>
+<section id="play" hidden>
+ <div class="runbar"><button class="quiet" id="leave" data-t="leave">← Leave</button><strong id="hearts">♥ ♥ ♥</strong><span id="snacks">🍡 0</span></div>
+ <div class="journey"><span id="stage"></span><strong id="combo"></strong></div>
+ <div class="scene" id="scene"><canvas id="world" aria-label="Tetsu crossing the river"></canvas><span id="reaction" aria-live="polite"></span></div>
+ <div class="partner-strip"><div><i class="dot"></i><span id="youState"></span></div><div><i class="dot pink"></i><span id="friendState"></span></div></div>
+ <div id="task" class="task">
+  <div class="task-head"><span id="role"></span><span id="clock"></span></div><div class="timer"><i id="timeFill"></i></div>
+  <p id="cue"></p><div id="word" class="word" lang="ja"></div><div id="slots" class="slots" lang="ja"></div>
+  <div id="tiles" class="tiles"></div>
+  <div id="actions" class="actions"><button id="peek" class="quiet" data-t="peek">Peek</button><button id="mic" data-t="say">🎤 Say it</button><button id="undo" class="quiet" data-t="undo">Undo</button></div>
+  <button id="help" class="primary" hidden data-t="help">Send your friend a hint ✦</button>
+  <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+ </div>
+ <div id="panel" class="panel"><p id="panelTag" class="tag"></p><h2 id="panelTitle"></h2><p id="panelText"></p><div id="choice" class="choice" hidden><button id="safe"></button><button id="risk"></button></div><button id="ready" class="primary"></button><button id="copy" class="secondary" data-t="copy">Copy friend invite ↗</button><p id="roomCode" class="room-code"></p></div>
+ <div class="reactions"><button data-react="nice">💛 <span data-t="nice">Nice!</span></button><button data-react="oops">🙈 <span data-t="oops">Oops!</span></button><button data-react="go">🔥 <span data-t="go">Let’s go!</span></button></div>
+ <p id="net" class="net" role="status"></p>
+</section></main><script src="mqtt-client.js"></script><script src="snack.js"></script></body></html>
