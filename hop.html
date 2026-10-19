@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1c2042"><title>Tetsu’s Sky Hop · Tango Swipe</title><link rel="stylesheet" href="hop.css"></head>
+<body><main>
+<header class="top"><a href="lab.html" data-t="games">← Games</a><span>TANGO SWIPE</span><button id="lang">中文</button></header>
+<section id="home">
+ <div class="tag" data-t="tag">LITTLE WORDS. BIG JUMPS.</div><h1 data-t="title">Tetsu’s<br>Sky Hop</h1><p class="intro" data-t="intro"></p>
+ <div class="poster" aria-hidden="true"><span class="moon">☾</span><span class="poster-word">ねこ <small>neko</small></span><div class="cloud c1"></div><div class="cloud c2"></div><img src="assets/characters/tetsu.png" alt=""><span class="poster-star">✦</span><span class="small-star">✦</span></div>
+ <div class="features"><span data-t="coop"></span><span data-t="kana"></span><span data-t="short"></span></div>
+ <div class="preferences"><label><span data-t="level"></span><select id="level"><option value="guided" data-t="guided"></option><option value="independent" data-t="independent"></option></select></label><label><span data-t="script"></span><select id="script"><option value="hira" data-t="hira"></option><option value="kata" data-t="kata"></option><option value="mixed" data-t="mixed"></option></select></label><p data-t="profileNote"></p></div>
+ <button class="primary" id="create" data-t="create"></button>
+ <form id="joinForm"><label class="sr-only" for="code" data-t="room"></label><input id="code" maxlength="6" placeholder="ROOM CODE" autocapitalize="characters" autocomplete="off" spellcheck="false"><button data-t="join"></button></form>
+ <button class="secondary" id="practice" data-t="practice"></button>
+ <label class="route-label"><span data-t="connection"></span><select id="server"><option value="gl" data-t="global"></option><option value="cn" data-t="china"></option></select></label><p class="tiny" data-t="routeHelp"></p><p id="homeNote" class="note" role="status"></p>
+ <details><summary data-t="how"></summary><p data-t="rules"></p><p data-t="rules2"></p><p data-t="voiceInfo"></p></details>
+</section>
+<section id="play" hidden>
+ <div class="runbar"><button class="quiet" id="leave" data-t="leave"></button><strong id="hearts"></strong><span id="snacks">✦ 0</span><button class="quiet" id="pause" data-t="pause"></button></div>
+ <div class="journey"><span id="stage"></span><strong id="combo"></strong></div>
+ <div class="scene"><canvas id="world" aria-label="Tetsu jumping up clouds toward the moon"></canvas><span id="reaction" aria-live="polite"></span><div class="word-bubble" id="wordBubble" hidden><span id="meaning"></span><div id="word" lang="ja"></div><div id="romaji"></div></div></div>
+ <div class="partner-strip"><div><i class="dot"></i><span id="youState"></span></div><div><i class="dot pink"></i><span id="friendState"></span></div></div>
+ <div class="dock">
+  <div id="task" hidden>
+   <div class="task-head"><span id="role"></span><span id="clock"></span></div><div class="timer"><i id="timeFill"></i></div>
+   <p id="cue"></p><div id="slots" class="slots" lang="ja"></div><div id="tiles" class="tiles"></div>
+   <div id="actions" class="actions"><button id="peek" class="quiet"></button><button id="hear" class="quiet" data-t="hear"></button><button id="undo" class="quiet" data-t="undo"></button></div>
+   <button id="help" class="primary" hidden></button><p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+  </div>
+  <div id="panel" class="panel"><p id="panelTag" class="tag"></p><h2 id="panelTitle"></h2><p id="panelText"></p><div id="choice" class="choice" hidden><button id="safe"></button><button id="risk"></button></div><button id="ready" class="primary"></button><button id="copy" class="secondary" data-t="copy"></button><p id="roomCode" class="room-code"></p></div>
+  <div class="voice-bar"><button id="mic" aria-pressed="false" data-t="say"></button><span id="voiceStatus" role="status"></span></div>
+ </div>
+ <div class="reactions"><button data-react="nice">💛 <span data-t="nice"></span></button><button data-react="oops">🙈 <span data-t="oops"></span></button><button data-react="go">🔥 <span data-t="go"></span></button></div><p id="net" class="net" role="status"></p>
+</section></main><script src="mqtt-client.js"></script><script src="hop.js"></script></body></html>
