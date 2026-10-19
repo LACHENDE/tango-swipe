@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1b1035"><title>Kana Duel · Tango Swipe</title><link rel="stylesheet" href="duel.css"></head>
+<body><main>
+<section id="home" class="home">
+ <a class="back" href="lab.html">← Game lab</a><p class="eyebrow">TANGO SWIPE · 1 V 1</p>
+ <h1>Small words.<br>Quick spells.</h1><p class="intro">Read the same hiragana word aloud.<br>First correct reading wins the point.</p>
+ <div class="hero"><span class="hero-word" lang="ja">さくら</span><img class="hero-you" src="assets/characters/you.png" alt="Teal ninja"><span class="versus">VS</span><img class="hero-aya" src="assets/characters/aya.png" alt="Pink ninja"></div>
+ <div class="pills"><span>Hiragana only</span><span>First to 5</span><span>2 devices</span></div>
+ <button id="create" class="primary">Create a duel</button>
+ <form id="joinForm" class="join"><label class="sr-only" for="code">Room code</label><input id="code" placeholder="ROOM CODE" maxlength="6" autocomplete="off" autocapitalize="characters" spellcheck="false"><button type="submit">Join friend</button></form>
+ <button id="practice" class="practice">Try against Tetsu <span>Practice bot →</span></button>
+ <p id="homeStatus" class="status" role="status"></p>
+ <details><summary>How it works</summary><p>Both players tap Ready to open their microphones. After 3, 2, 1, read the hiragana. Short, beginner words only; no kanji or translation questions.</p><p>Recognition time includes your browser’s processing delay. Readings within 0.3 seconds tie. This is a friendly prototype, not a pronunciation test.</p><p>Microphones stop after each word. Your browser may send audio to its speech service. This game sends only round timing and scores to the other player.</p><p>A friend needs access to this site. Earphones and separate spaces help keep your voices apart.</p></details>
+</section>
+<section id="duel" hidden>
+ <header><button id="leave" class="quiet">← Leave</button><strong>Kana Duel</strong><span id="roomBadge">PRACTICE</span></header>
+ <div class="scoreboard"><div><span>You</span><strong id="myScore">0</strong><small id="myState">Not ready</small></div><p>FIRST TO<br><b>5</b></p><div><span id="rivalName">Rival</span><strong id="rivalScore">0</strong><small id="rivalState">Waiting</small></div></div>
+ <div class="scene" id="scene">
+  <p id="roundLabel" class="round-label">HIRAGANA READING RACE</p>
+  <div class="word-card"><span id="cue">A friend makes it a duel.</span><strong id="word" lang="ja">···</strong><span id="meaning"></span></div>
+  <div class="time-track" aria-hidden="true"><span id="timeBar"></span></div>
+  <p id="verdict" role="status">Share your room code to begin.</p>
+  <div class="fighters"><div class="fighter me"><img src="assets/characters/you.png" alt="Your ninja"><img class="pet" src="assets/characters/tetsu.png" alt="Tetsu"></div><span id="spell" aria-hidden="true">✦</span><div class="fighter rival"><img id="rivalSprite" src="assets/characters/aya.png" alt="Rival ninja"></div></div>
+ </div>
+ <footer>
+  <div id="invite" class="invite"><span>Room <b id="roomCode"></b></span><button id="copy" class="quiet">Copy invite ↗</button></div>
+  <button id="ready" class="primary">Ready · open mic</button>
+  <button id="hear" class="quiet" hidden>▶ Hear the word</button>
+  <p id="micStatus" class="status" role="status">Mic opens only when you tap Ready.</p>
+  <p id="network" class="network">Connecting…</p>
+ </footer>
+</section></main><script src="mqtt-client.js"></script><script src="duel.js"></script></body></html>

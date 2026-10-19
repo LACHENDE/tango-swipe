@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#1b1035">
+<title>Tango Swipe · Game Lab</title>
+<link rel="stylesheet" href="lab.css">
+</head>
+<body>
+<main id="app">
+ <section id="menu" class="menu">
+  <header class="brand"><div><p class="eyebrow">TANGO SWIPE</p><h1>Find your<br>kind of fun.</h1><p class="intro">Play with a friend or try a solo experiment.</p></div><img src="assets/characters/tetsu.png" alt="Tetsu the ninja shiba"></header>
+  <div class="settings"><label>Words<select id="wordSet"><option value="starter">Everyday words</option><option value="n5">N5</option><option value="n4">N4</option></select></label><label>Meanings<select id="language"><option value="en">English</option><option value="id">Indonesia</option><option value="zh">中文</option></select></label></div>
+  <div class="games">
+   <a class="game-card voice" href="duel.html" style="text-decoration:none;color:inherit;border-radius:12px;border:1px solid #665075;border-left:3px solid #ff4fa3"><span class="card-copy"><span class="type">NEW · 1 V 1 VOICE RACE</span><strong>Kana Duel</strong><span>Same hiragana. Read it aloud before your friend.</span><small>First to 5 · beginner readings</small></span><img src="assets/characters/aya.png" alt=""><span class="play-arrow" aria-hidden="true">↗</span></a>
+   <button type="button" class="game-card listen" data-start="listen"><span class="card-copy"><span class="type">LISTEN + MOVE</span><strong>Listen &amp; Dodge</strong><span>Hear Japanese. Dodge the orbs. Flick toward its meaning.</span><small data-best="listen">60 seconds · two choices</small></span><img src="assets/characters/kappa.png" alt=""><span class="play-arrow" aria-hidden="true">↗</span></button>
+   <button type="button" class="game-card runner" data-start="runner"><span class="card-copy"><span class="type">READ + STEER</span><strong>Word Runner</strong><span>Race through the gate with the right meaning.</span><small data-best="runner">60 seconds · two lanes</small></span><img src="assets/characters/you.png" alt=""><span class="play-arrow" aria-hidden="true">↗</span></button>
+   <button type="button" class="game-card voice" data-start="voice"><span class="card-copy"><span class="type">RECALL + SPEAK</span><strong>Speak to Cast</strong><span>See a meaning. Say the Japanese word to cast a spell.</span><small data-best="voice">10 spells · typing also works</small></span><img src="assets/characters/tetsu.png" alt=""><span class="play-arrow" aria-hidden="true">↗</span></button>
+  </div>
+  <a class="raid-link" href="tango-raid.html">Play the original co-op raid <span aria-hidden="true">→</span></a>
+ </section>
+ <section id="game" hidden>
+  <header class="game-head"><button id="back" class="quiet" type="button" aria-label="Back to game selection">← Games</button><strong id="gameTitle"></strong><button id="pause" class="quiet" type="button">Pause</button></header>
+  <div class="stats"><span id="hearts" aria-label="Lives"></span><span id="score">0 words</span><span id="timer">1:00</span></div>
+  <div class="arena-wrap"><canvas id="arena" aria-label="Game arena"></canvas><div id="prompt" class="prompt"><span id="promptLabel"></span><strong id="promptWord"></strong></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div></div>
+  <div id="listenControls" class="controls" hidden>
+   <div class="listen-options"><button id="replayAudio" type="button" class="quiet">▶ Replay word</button><label><input id="showWord" type="checkbox"> Show word</label></div>
+   <div class="thumb-row"><div id="joystick" class="joystick" aria-label="Drag to move"><span id="joyKnob"></span></div><div class="answer-side"><div class="answer-pair"><button type="button" data-answer="0"></button><button type="button" data-answer="1"></button></div><button id="flick" type="button" aria-label="Flick left or right; release to answer">← <span>Flick an answer</span> →</button></div></div>
+   <p class="control-help">Left thumb moves · right thumb answers</p>
+  </div>
+  <div id="runnerControls" class="controls" hidden>
+   <div class="lane-buttons"><button id="laneLeft" type="button">← Left lane</button><button id="laneRight" type="button">Right lane →</button></div><button id="dash" class="primary" type="button">Dash through</button><p class="control-help">Choose the matching gate · swipe or use arrow keys</p>
+  </div>
+  <div id="voiceControls" class="controls" hidden>
+   <div class="voice-tools"><button id="hint" class="quiet" type="button">Show reading</button><button id="hearAnswer" class="quiet" type="button">▶ Hear answer</button></div>
+   <div id="voiceHint" class="voice-hint" aria-live="polite"></div>
+   <button id="mic" class="primary mic" type="button">Tap to speak Japanese</button>
+   <p id="voiceStatus" class="voice-status" aria-live="polite">Mic starts only when you tap. Typing works too.</p>
+   <form id="typeForm"><label class="sr-only" for="typed">Japanese word in kana or kanji</label><input id="typed" autocomplete="off" spellcheck="false" placeholder="Or type Japanese here"><button type="submit">Cast</button></form>
+  </div>
+  <div id="overlay" class="overlay" hidden><div class="result-panel"><img src="assets/characters/tetsu.png" alt="Tetsu"><p id="resultEyebrow" class="eyebrow"></p><h2 id="resultTitle"></h2><p id="resultDetail"></p><button id="resume" class="primary" type="button" hidden>Resume</button><button id="again" class="primary" type="button">Play again</button><button id="favorite" type="button">Keep this one ♥</button><button id="choose" class="quiet" type="button">Try another game →</button></div></div>
+ </section>
+</main>
+<script src="lab-words.js"></script><script src="lab.js"></script>
+</body>
+</html>
